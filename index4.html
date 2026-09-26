@@ -1,0 +1,783 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maria Ierullo — Italian Editorial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #f4efe4;
+            --paper: #faf8f2;
+            --black: #171715;
+            --terracotta: #c65a3a;
+            --green: #34483b;
+            --yellow: #d9ad45;
+            --muted: #756f64;
+            --line: #cfc7b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--black);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5vw;
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            background: rgba(244,239,228,.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: "Libre Bodoni", serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+        }
+
+        .nav-links a {
+            transition: color .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: calc(100vh - 76px);
+            padding: 5vw;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 5vw;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-text {
+            padding-bottom: 5vh;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 40px;
+            height: 2px;
+            background: var(--terracotta);
+        }
+
+        .hero h1 {
+            font-family: "Libre Bodoni", serif;
+            font-size: clamp(5rem, 10vw, 10rem);
+            line-height: .78;
+            letter-spacing: -.07em;
+            font-weight: 500;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-style: italic;
+            color: var(--terracotta);
+            margin-left: 12%;
+        }
+
+        .hero-description {
+            max-width: 430px;
+            margin: 50px 0 0 12%;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .hero-number {
+            position: absolute;
+            left: 5vw;
+            bottom: 4vh;
+            font-size: .7rem;
+            letter-spacing: .2em;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        /* IMAGE */
+
+        .hero-image {
+            height: 72vh;
+            position: relative;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.08)),
+                #aaa398;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: .8rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .hero-image::before {
+            content: "OTTAWA · CANADA";
+            position: absolute;
+            top: -20px;
+            right: 0;
+            font-size: .62rem;
+            letter-spacing: .2em;
+            color: var(--muted);
+        }
+
+        .hero-image::after {
+            content: "01";
+            position: absolute;
+            bottom: -30px;
+            left: -35px;
+            font-family: "Libre Bodoni", serif;
+            font-size: 4rem;
+            color: var(--terracotta);
+        }
+
+        /* INTRO */
+
+        .intro {
+            background: var(--green);
+            color: var(--cream);
+            padding: 13vw 10vw;
+            display: grid;
+            grid-template-columns: .8fr 2fr;
+            gap: 8vw;
+        }
+
+        .intro-label {
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+        }
+
+        .intro h2 {
+            font-family: "Libre Bodoni", serif;
+            font-size: clamp(2.8rem, 5vw, 6rem);
+            line-height: .98;
+            font-weight: 400;
+        }
+
+        .intro h2 em {
+            color: var(--yellow);
+        }
+
+        /* EDITORIAL SECTIONS */
+
+        .editorial {
+            padding: 12vw 7vw;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 20px;
+            margin-bottom: 8vw;
+        }
+
+        .section-number {
+            font-family: "Libre Bodoni", serif;
+            font-size: 4rem;
+        }
+
+        .section-label {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8vw;
+            align-items: center;
+            margin-bottom: 15vw;
+        }
+
+        .story:nth-child(even) {
+            direction: rtl;
+        }
+
+        .story:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .story-image {
+            height: 600px;
+            background: #aaa398;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+        }
+
+        .story-content {
+            max-width: 550px;
+        }
+
+        .story-year {
+            color: var(--terracotta);
+            font-size: .75rem;
+            letter-spacing: .2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .story h3 {
+            font-family: "Libre Bodoni", serif;
+            font-size: clamp(3rem, 5vw, 5.5rem);
+            line-height: .9;
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .story p {
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .read-more {
+            display: inline-block;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 6px;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            font-weight: 700;
+        }
+
+        /* PULL QUOTE */
+
+        .quote {
+            padding: 10vw 12vw;
+            background: var(--terracotta);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .quote-mark {
+            font-family: "Libre Bodoni", serif;
+            font-size: 7rem;
+            line-height: .5;
+        }
+
+        .quote blockquote {
+            max-width: 1000px;
+            margin: 30px auto;
+            font-family: "Libre Bodoni", serif;
+            font-style: italic;
+            font-size: clamp(2.5rem, 5vw, 5.5rem);
+            line-height: 1;
+        }
+
+        /* ACHIEVEMENTS */
+
+        .achievements {
+            padding: 12vw 7vw;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--black);
+        }
+
+        .achievement {
+            padding: 45px 25px;
+            border-right: 1px solid var(--black);
+        }
+
+        .achievement:last-child {
+            border-right: none;
+        }
+
+        .achievement-number {
+            font-family: "Libre Bodoni", serif;
+            font-size: 3.5rem;
+            color: var(--terracotta);
+            margin-bottom: 35px;
+        }
+
+        .achievement h4 {
+            font-family: "Libre Bodoni", serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .achievement p {
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.7;
+        }
+
+        /* POETRY */
+
+        .poetry {
+            background: var(--black);
+            color: var(--cream);
+            padding: 13vw 10vw;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poetry::after {
+            content: "POETRY";
+            position: absolute;
+            right: -4vw;
+            bottom: -7vw;
+            font-family: "Libre Bodoni", serif;
+            font-size: 20vw;
+            color: rgba(255,255,255,.04);
+        }
+
+        .poetry-label {
+            color: var(--yellow);
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+        }
+
+        .poetry h2 {
+            font-family: "Libre Bodoni", serif;
+            font-size: clamp(4rem, 8vw, 9rem);
+            font-weight: 400;
+            margin: 40px 0;
+            line-height: .85;
+        }
+
+        .poem {
+            max-width: 700px;
+            margin-left: 15%;
+            border-left: 1px solid var(--terracotta);
+            padding-left: 40px;
+        }
+
+        .poem p {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            line-height: 2;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--yellow);
+            padding: 7vw;
+            color: var(--black);
+        }
+
+        .footer-title {
+            font-family: "Libre Bodoni", serif;
+            font-size: clamp(3rem, 7vw, 8rem);
+            line-height: .85;
+            max-width: 900px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0,0,0,.4);
+            margin-top: 80px;
+            padding-top: 20px;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 6vw;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 12vw 6vw;
+            }
+
+            .hero h1 {
+                font-size: 22vw;
+            }
+
+            .hero-description {
+                margin-left: 0;
+            }
+
+            .hero-image {
+                height: 65vh;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                padding: 20vw 8vw;
+            }
+
+            .story,
+            .story:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+
+            .story-image {
+                height: 450px;
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .achievement {
+                border-bottom: 1px solid var(--black);
+            }
+
+            .poem {
+                margin-left: 0;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#" class="nav-logo">M. Ierullo</a>
+
+    <div class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#legacy">Legacy</a>
+        <a href="#poetry">Poetry</a>
+        <a href="#archive">Archive</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <div class="eyebrow">
+            A life remembered
+        </div>
+
+        <h1>
+            Maria
+            <span>Ierullo</span>
+        </h1>
+
+        <p class="hero-description">
+            Pioneer. Translator. Advocate. Poet.
+            A woman whose work helped open doors for
+            generations of Italian Canadian families.
+        </p>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="images.jpg" alt="Maria Ierullo">
+    </div>
+
+    <div class="hero-number">
+        1920s — LEGACY
+    </div>
+
+</section>
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <div class="intro-label">
+        The beginning
+    </div>
+
+    <h2>
+        A woman who
+        <em>opened doors.</em>
+    </h2>
+
+</section>
+
+<!-- STORY -->
+
+<section class="editorial" id="story">
+
+    <div class="section-header">
+        <div class="section-label">Her story</div>
+        <div class="section-number">01</div>
+    </div>
+
+    <article class="story">
+
+        <div class="story-image">
+            Historical photograph
+        </div>
+
+        <div class="story-content">
+
+            <div class="story-year">1955 — 1957</div>
+
+            <h3>
+                The<br>
+                Pioneer
+            </h3>
+
+            <p>
+                Maria entered the world of real estate at a time when
+                very few women—and even fewer Italian Canadian women—
+                occupied that space.
+            </p>
+
+            <p>
+                After passing her broker examination, she
+                opened her own office and built a career that would
+                become part of Ottawa's Italian Canadian history.
+            </p>
+
+            <a href="#" class="read-more">Discover her career →</a>
+
+        </div>
+
+    </article>
+
+    <article class="story">
+
+        <div class="story-image">
+            Court / archival photograph
+        </div>
+
+        <div class="story-content">
+
+            <div class="story-year">TRANSLATION</div>
+
+            <h3>
+                The<br>
+                Bridge
+            </h3>
+
+            <p>
+                Language was another way Maria served her community.
+                As a court translator, she helped people navigate
+                situations where understanding could make all the
+                difference.
+            </p>
+
+            <a href="#" class="read-more">Her work as a translator →</a>
+
+        </div>
+
+    </article>
+
+    <article class="story">
+
+        <div class="story-image">
+            Community photograph
+        </div>
+
+        <div class="story-content">
+
+            <div class="story-year">COMMUNITY</div>
+
+            <h3>
+                The<br>
+                Advocate
+            </h3>
+
+            <p>
+                Maria devoted herself to the Italian Canadian
+                community, including organizing prenatal clinics
+                for young Italian women and advocating for families
+                facing difficult circumstances.
+            </p>
+
+            <a href="#" class="read-more">Her community legacy →</a>
+
+        </div>
+
+    </article>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+    <div class="quote-mark">“</div>
+
+    <blockquote>
+        Her work was never only about
+        what she accomplished.
+        It was about who she helped.
+    </blockquote>
+
+</section>
+
+<!-- ACHIEVEMENTS -->
+
+<section class="achievements" id="legacy">
+
+    <div class="section-header">
+        <div class="section-label">More than one title</div>
+        <div class="section-number">02</div>
+    </div>
+
+    <div class="achievement-grid">
+
+        <div class="achievement">
+            <div class="achievement-number">01</div>
+            <h4>Pioneer</h4>
+            <p>
+                A trailblazer in Ottawa's real estate community.
+            </p>
+        </div>
+
+        <div class="achievement">
+            <div class="achievement-number">02</div>
+            <h4>Translator</h4>
+            <p>
+                A bridge between languages and institutions.
+            </p>
+        </div>
+
+        <div class="achievement">
+            <div class="achievement-number">03</div>
+            <h4>Advocate</h4>
+            <p>
+                A dedicated voice for Italian Canadian families.
+            </p>
+        </div>
+
+        <div class="achievement">
+            <div class="achievement-number">04</div>
+            <h4>Poet</h4>
+            <p>
+                A woman who also expressed her life through words.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- POETRY -->
+
+<section class="poetry" id="poetry">
+
+    <div class="poetry-label">
+        From her writing
+    </div>
+
+    <h2>
+        The Poet
+    </h2>
+
+    <div class="poem">
+
+        <p>
+            Replace this section with one of Maria's poems.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="archive">
+
+    <div class="footer-title">
+        A life that
+        opened doors.
+    </div>
+
+    <div class="footer-bottom">
+        <span>Maria Ierullo</span>
+        <span>Her story · Her words · Her legacy</span>
+        <span>© Family Archive</span>
+    </div>
+
+</footer>
+
+</body>
+</html>
+

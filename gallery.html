@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Photo Gallery | Maria Ierullo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --cream: #f7f2e9;
+            --paper: #fffdf8;
+            --burgundy: #641f2b;
+            --burgundy-dark: #4d1721;
+            --dark: #24211f;
+            --gold: #b08a4a;
+            --muted: #746d65;
+            --border: #ded4c6;
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            background: var(--cream);
+            color: var(--dark);
+            font-family: "Inter", sans-serif;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            height: 80px;
+            display: flex;r5rewr
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(247, 242, 233, 0.96);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 50;
+        }
+
+
+        .logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 27px;
+
+            color: var(--burgundy);
+
+            letter-spacing: 1px;
+        }
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+
+        nav a {
+            color: var(--dark);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition: color 0.2s ease;
+        }
+
+
+        nav a:hover {
+            color: var(--burgundy);
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        .gallery-header {
+            padding: 110px 9% 80px;
+
+            text-align: center;
+
+            background: var(--paper);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .eyebrow {
+            text-transform: uppercase;
+
+            color: var(--gold);
+
+            letter-spacing: 4px;
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .gallery-header h1 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-weight: 500;
+
+            font-size: clamp(60px, 8vw, 100px);
+
+            line-height: 0.9;
+
+            color: var(--burgundy);
+
+            margin-bottom: 25px;
+        }
+
+
+        .gallery-header p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           BACK LINK
+        ========================= */
+
+        .back-link-wrapper {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 30px 7% 0;
+        }
+
+
+        .back-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--burgundy);
+
+            text-decoration: none;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            transition: transform 0.2s ease;
+        }
+
+
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+
+        /* =========================
+           GALLERY CONTAINER
+        ========================= */
+
+        .gallery-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 60px 7% 120px;
+        }
+
+
+        /* =========================
+           PHOTO GRID
+        ========================= */
+
+        .photo-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           PHOTO CARD
+        ========================= */
+
+        .photo-card {
+            background: var(--paper);
+
+            border: 1px solid var(--border);
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(36, 33, 31, 0.09);
+        }
+
+
+        /* =========================
+           PHOTO
+        ========================= */
+
+        .photo-image {
+            height: 360px;
+
+            overflow: hidden;
+
+            background: var(--cream);
+        }
+
+
+        .photo-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.5s ease;
+        }
+
+
+        .photo-card:hover .photo-image img {
+            transform: scale(1.04);
+        }
+
+
+        /* =========================
+           PHOTO NUMBER
+        ========================= */
+
+        .photo-number {
+            padding: 15px 20px;
+
+            border-top: 1px solid var(--border);
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+
+            color: var(--gold);
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           LIGHTBOX
+        ========================= */
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(24, 20, 18, 0.94);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 40px;
+
+            z-index: 100;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+
+        .lightbox.active {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+
+        .lightbox-content {
+            max-width: 1100px;
+
+            max-height: 90vh;
+
+            position: relative;
+
+            text-align: center;
+        }
+
+
+        .lightbox img {
+            max-width: 100%;
+
+            max-height: 78vh;
+
+            display: block;
+
+            margin: auto;
+
+            object-fit: contain;
+        }
+
+
+        .lightbox-caption {
+            color: white;
+
+            margin-top: 15px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 24px;
+        }
+
+
+        .lightbox-close {
+            position: fixed;
+
+            top: 25px;
+
+            right: 35px;
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            font-size: 35px;
+
+            cursor: pointer;
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        .lightbox-close:hover {
+            color: #d8bd8a;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--dark);
+
+            color: white;
+
+            padding: 60px 9%;
+
+            text-align: center;
+        }
+
+
+        footer h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 35px;
+        }
+
+
+        footer p {
+            color: #aaa;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            nav ul {
+                display: none;
+            }
+
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .gallery-header {
+                padding: 80px 7% 60px;
+            }
+
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .photo-image {
+                height: 330px;
+            }
+
+
+            .gallery-container {
+                padding-top: 40px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Maria Ierullo
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html#story">
+                    Her Story
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#achievements">
+                    Achievements
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#timeline">
+                    Journey
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#archive">
+                    Archive
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="gallery-header">
+
+        <div class="eyebrow">
+            Photographic Record
+        </div>
+
+        <h1>
+            Her Life<br>
+            in Pictures.
+        </h1>
+
+        <p>
+            A collection of photographs preserving moments
+            from Maria's life, work, family and community.
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         BACK LINK
+    ========================= -->
+
+    <div class="back-link-wrapper">
+
+        <a href="index.html#gallery" class="back-link">
+            ← Back to Maria's Story
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================
+         GALLERY
+    ========================= -->
+
+    <main class="gallery-container">
+
+        <div class="photo-grid" id="photoGrid">
+            <!-- Photos are automatically inserted here -->
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         LIGHTBOX
+    ========================= -->
+
+    <div class="lightbox" id="lightbox">
+
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+            aria-label="Close photograph">
+            ×
+        </button>
+
+        <div class="lightbox-content">
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt=""
+            >
+
+            <div
+                class="lightbox-caption"
+                id="lightboxCaption">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <h2>
+            The legacy continues.
+        </h2>
+
+        <p>
+            In memory of Maria Ierullo
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /*
+         * ==========================================
+         * PHOTO LIST
+         * ==========================================
+         *
+         * Put your photographs inside:
+         *
+         * gallery/
+         *
+         * Then list their filenames here.
+         *
+         * Example:
+         *
+         * gallery/
+         *     maria-001.jpg
+         *     maria-002.jpg
+         *     maria-003.jpg
+         *
+         */
+
+        const photos = [
+            {
+                file:"maria-001.jpg",
+                description:"Maria Ierullo's husband Vincenzo Ierullo (Jimmy)."
+            },
+            {
+                file:"maria-003.jpg",
+                description:"Maria Ierullo with her daughter Angela."
+            },
+            {
+                file:"maria-004.jpg",
+                description:"Maria Ierullo's first house on Louisa Street."
+            },
+            {
+                file:"maria-005.jpg",
+                description:"An article about Maria Ierullo's work as a real estate broker."
+            },
+            {
+                file:"maria-006.jpg",
+                description:"An article reminising about Maria's work throughout her life."
+            },
+            {
+                file:"maria-007.jpg",
+                description:"An interview with Maria Ierullo about her life and work."
+            },
+            {
+                file:"maria-009.jpg",
+                description:"An article discussing the exhibit honouring Maria at the museum of civilisation."
+            },
+            {
+                file:"maria-012.jpg",
+                description:"Maria's real estate office and home on Rochester street (corner of Willow and Rochester)."
+            },
+            {
+                file:"maria-013.jpg",
+                description:"A teenage Maria pictured with her beloved dog Michael."
+            },
+            {
+                file:"maria-014.jpg",
+                description:"A monument in Little Italy honouring Maria Ierullo and her mother Angela Parotta for their contributions to the community."
+            },
+            {
+                file:"maria-015.jpg",
+                description:"A monument in Little Italy honouring Maria Ierullo and her mother Angela Parotta for their contributions to the community."
+            },
+            {
+                file:"maria-016.jpg",
+                description:"A monument in Little Italy honouring Maria Ierullo and her mother Angela Parotta for their contributions to the community."
+            },
+            {
+                file:"maria-017.jpg",
+                description:"A monument in Little Italy honouring Maria Ierullo and her mother Angela Parotta for their contributions to the community."
+            },
+            {
+                file:"maria-018.jpg",
+                description:"Maria receiving a Papal Blessing Parchment."
+            },
+            {
+                file:"maria-019.jpg",
+                description:"Maria with longtime friend Maime Cook [Imbessi]."
+            },
+            {
+                file:"maria-020.jpg",
+                description:"Maria Ierullo with close friends and family."
+            },
+            {
+                file:"maria-021.jpg",
+                description:"Maria Ierullo with daughter Angela and museum curator at exhibit honouring her work at the museum of civilisation."
+            },
+            {
+                file:"maria-022.jpg",
+                description:"Maria at exhibit honouring her life's work at the museum of civilisation."
+            },
+            {
+                file:"maria-023.jpg",
+                description:"Young Maria with her uncle Bruno."
+            },
+            {
+                file:"maria-024.jpg",
+                description:"Maria with Tony Lofaro at museum exhibit."
+            },
+            {
+                file:"maria-025.jpg",
+                description:"Maria Ierullo with her mother Angela Parotta."
+            },
+            {
+                file:"maria-026.jpg",
+                description:"Young Maria Ierullo with her mother Angela Parotta."
+            },
+            {
+                file:"maria-027.jpg",
+                description:"Maria Ierullo at Filo for the Italian Canadian Women of the Village being recognized with lifetime award."
+            },
+            {
+                file:"maria-028.jpg",
+                description:"Maria Ierullo at a family wedding."
+            },
+            {
+                file:"maria-029.jpg",
+                description:"Maria Ierullo with her son of law Italo."
+            },
+            {
+                file:"maria-030.jpg",
+                description:"Maria with MonSeigneur at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-031.jpg",
+                description:"Maria Ierullo with Father Paul and the Bishop (1999)."
+            },
+            {
+                file:"maria-032.jpg",
+                description:"Maria Ierullo with her daughter Angela."
+            },
+            {
+                file:"maria-033.jpg",
+                description:"Maria Ierullo with various family members."
+            },
+            {
+                file:"maria-034.jpg",
+                description:"Maria Ierullo with her daughter Angela and neighbour."
+            },
+            {
+                file:"maria-035.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) and Jimmy's family."
+            },
+            {
+                file:"maria-036.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) and close friends."
+            },
+            {
+                file:"maria-037.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) at their 25th wedding anniversary celebration."
+            },
+            {
+                file:"maria-038.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) at a family gathering."
+            },
+            {
+                file:"maria-039.jpg",
+                description:"Maria Ierullo."
+            },
+            {
+                file:"maria-040.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) at their 25th wedding anniversary."
+            },
+            {
+                file:"maria-041.jpg",
+                description:"Maria Ierullo with Father Paul at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-042.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) at their 25th wedding anniversary celebration."
+            },
+            {
+                file:"maria-043.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) on their wedding day."
+            },
+            {
+                file:"maria-044.jpg",
+                description:"Maria Ierullo with clergy members at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-045.jpg",
+                description:"Maria Ierullo with her Father Paul receiving her Papal Blessing Parchment."
+            },
+            {
+                file:"maria-046.jpg",
+                description:"Maria Ierullo with a Bishop receiving her Papal Blessing Parchment."
+            },
+            {
+                file:"maria-047.jpg",
+                description:"Maria Ierullo with her daughter Angela at a family gathering."
+            },
+            {
+                file:"maria-048.jpg",
+                description:"Maria Ierullo at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-049.jpg",
+                description:"Maria Ierullo at Church, next to the virgin Mary statue."
+            },
+            {
+                file:"maria-050.jpg",
+                description:"Maria Ierullo with her niece and nephew at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-052.jpg",
+                description:"Maria Ierullo at a family gathering."
+            },
+            {
+                file:"maria-053.jpg",
+                description:"Maria Ierullo with Father Paul and fellow recipients of the Papal Blessing Parchment."
+            },
+            {
+                file:"maria-054.jpg",
+                description:"Maria Ierullo with a Bishop receiving her Papal Blessing Parchment."
+            },
+            {
+                file:"maria-055.jpg",
+                description:"Maria Ierullo with a nephew at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-056.jpg",
+                description:"Maria Ierullo with a friend at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-057.jpg",
+                description:"Young Maria Ierullo."
+            },
+            {
+                file:"maria-058.jpg",
+                description:"Maria Ierullo with her daughter Angela and other family members."
+            },
+            {
+                file:"maria-059.jpg",
+                description:"Maria Ierullo with a dear friend."
+            },
+            {
+                file:"maria-060.jpg",
+                description:"Maria Ierullo at St. Patrick's nursing home chapel."
+            },
+            {
+                file:"maria-062.jpg",
+                description:"Maria Ierullo with a neighbour at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-063.jpg",
+                description:"Maria Ierullo with a family at St. Patrick's nursing home."
+            },
+            {
+                file:"maria-064.jpg",
+                description:"Young Maria Ierullo with her mother."
+            },
+            {
+                file:"maria-066.jpg",
+                description:"Young Maria Ierullo when she first got to Canada."
+            },
+            {
+                file:"maria-067.jpg",
+                description:"Maria Ierullo with her mother, Angela Parotta, during the winter."
+            },
+            {
+                file:"maria-069.jpg",
+                description:"Maria Ierullo."
+            },
+            {
+                file:"maria-070.jpg",
+                description:"Maria Ierullo's uncle Bruno, who first welcomed them to Canada."
+            },
+            {
+                file:"maria-072.jpg",
+                description:"Maria Ierullo's husband Vincenzo (Jimmy)."
+            },
+            {
+                file:"maria-073.jpg",
+                description:"Young Maria Ierullo with a friend."
+            },
+            {
+                file:"maria-075.jpg",
+                description:"Maria Ierullo with a friend."
+            },
+            {
+                file:"maria-076.jpg",
+                description:"Young Maria Ierullo enjoying her childhood." 
+            },
+            {
+                file:"maria-078.jpg",
+                description:"Young Maria Ierullo in front of her garden."
+            },
+            {
+                file:"maria-079.jpg",
+                description:"Maria Ierullo's mother Angela Parotta."
+            },
+            {
+                file:"maria-081.jpg",
+                description:"Young Maria Ierullo at her first house with her husband."
+            },
+            {
+                file:"maria-085.jpg",
+                description:"A happy young Maria Ierullo."
+            },
+            {
+                file:"maria-086.jpg",
+                description:"Maria Ierullo's mother Angela Parotta."
+            },
+            {
+                file:"maria-087.jpg",
+                description:"Maria Ierullo's mother Angela Parotta."
+            },
+            {
+                file:"maria-089.jpg",
+                description:"Maria Ierullo's poetry work."
+            },
+            {
+                file:"maria-091.jpg",
+                description:"Maria Ierullo's poetry work."
+            },
+            {
+                file:"maria-092.jpg",
+                description:"Maria Ierullo's poetry work."
+            },
+            {
+                file:"maria-093.jpg",
+                description:"Maria Ierullo's poetry work, At Mass."
+            },
+            {
+                file:"maria-094.jpg",
+                description:"Maria Ierullo's poetry work, Our Canadian Pines."
+            },
+            {
+                file:"maria-095.jpg",
+                description:"Maria Ierullo's poetry work, Nature's Symphony."
+            },
+            {
+                file:"maria-096.jpg",
+                description:"Maria Ierullo's poetry work, Prayers."
+            },
+            {
+                file:"maria-097.jpg",
+                description:"Maria Ierullo's poetry work, A Pilgrims's Prayer."
+            },
+            {
+                file:"maria-098.jpg",
+                description:"Maria Ierullo's poetry work, In Loving Memory of Grandma (Mrs. Beakau)."
+            },
+            {
+                file:"maria-099.jpg",
+                description:"Maria Ierullo's poetry work, Seamen."
+            },
+            {
+                file:"maria-100.jpg",
+                description:"Maria Ierullo's poetry work, Betty."
+            },
+            {
+                file:"maria-101.jpg",
+                description:"Maria Ierullo's poetry work, The Blind."
+            },
+            {
+                file:"maria-102.jpg",
+                description:"Maria Ierullo's poetry work."
+            },
+            {
+                file:"maria-103.jpg",
+                description:"Maria Ierullo's poetry work, He's Only a Boy."
+            },
+            {
+                file:"maria-104.jpg",
+                description:"Maria Ierullo's poetry work, March On To Victory."
+            },
+            {
+                file:"maria-105.jpg",
+                description:"Maria Ierullo's poetry work, An Old Lady."
+            },
+            {
+                file:"maria-106.jpg",
+                description:"Maria Ierullo's poetry work, A Mother's Heart."
+            },
+            {
+                file:"maria-107.jpg",
+                description:"Maria Ierullo's poetry work, God's Guiding Hand."
+            },
+            {
+                file:"maria-108.jpg",
+                description:"Maria Ierullo's poetry work, This Remember."
+            },
+            {
+                file:"maria-109.jpg",
+                description:"Maria Ierullo's poetry work, You."
+            },
+            {
+                file:"maria-110.jpg",
+                description:"Maria Ierullo's poetry work, Little goe."
+            },
+            {
+                file:"maria-119.jpg",
+                description:"Young Maria Ierullo."
+            },
+            {
+                file:"maria-120.jpg",
+                description:"Young Maria Ierullo in front of her garden."
+            },
+            {
+                file:"maria-121.jpg",
+                description:"Young Maria Ierullo pictured by a professional photographer and painted with watercolours."
+            },
+            {
+                file:"maria-122.jpg",
+                description:"Maria Ierullo with Tony Lafero at an museum exhibit honouring her."
+            },
+            {
+                file:"maria-123.jpg",
+                description:"Young Maria Ierullo enjoying the water."
+            },
+            {
+                file:"maria-124.jpg",
+                description:"Young Maria Ierullo in front of her garden."
+            },
+            {
+                file:"maria-125.jpg",
+                description:"Young Maria Ierullo."
+            },
+            {
+                file:"maria-126.jpg",
+                description:"Young Maria Ierullo in downtown Ottawa."
+            },
+            {
+                file:"maria-128.jpg",
+                description:"Young Maria Ierullo with her mother Angela Parrotta."
+            },
+            {
+                file:"maria-132.jpg",
+                description:"Young Maria Ierullo with a family member."
+            },
+            {
+                file:"maria-133.jpg",
+                description:"Maria Ierullo with a her husband Vincenzo (Jimmy)."
+            },
+            {
+                file:"maria-137.jpg",
+                description:"Maria Ierullo with a her husband Vincenzo (Jimmy)."
+            },
+            {
+                file:"maria-138.jpg",
+                description:"Young Maria Ierullo."
+            },
+            {
+                file:"maria-139.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy)."
+            },
+            {
+                file:"maria-141.jpg",
+                description:"Young Maria Ierullo with her maternal grandmother."
+            },
+            {
+                file:"maria-143.jpg",
+                description:"Maria Ierullo enjoying the countryside."
+            },
+            {
+                file:"maria-144.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy)."
+            },
+            {
+                file:"maria-145.jpg",
+                description:"Maria Ierullo with her family."
+            },
+            {
+                file:"maria-147.jpg",
+                description:"Maria Ierullo with her family."
+            },
+            {
+                file:"maria-149.jpg",
+                description:"Maria Ierullo with her husband Vincenzo (Jimmy) and her daughter Angela."
+            },
+            {
+                file:"maria-150.jpg",
+                description:"Maria Ierullo with at her family members' wedding."
+            },
+            {
+                file:"maria-151.jpg",
+                description:"Maria Ierullo with a family member."
+            },
+            {
+                file:"maria-152.jpg",
+                description:"Maria Ierullo with her friend Maime."
+            },
+            {
+                file:"maria-153.jpg",
+                description:"Maria Ierullo with her family."
+            },
+            {
+                file:"maria-154.jpg",
+                description:"Maria Ierullo with her niece at her wedding."
+            },
+            {
+                file:"maria-155.jpg",
+                description:"Maria Ierullo with her friend Maime."
+            },
+            {
+                file:"maria-156.jpg",
+                description:"Maria Ierullo with her family."
+            },
+            {
+                file:"maria-157.jpg",
+                description:"Maria Ierullo with her beloved cat, Ginger."
+            }
+        ];
+
+
+        /*
+         * ==========================================
+         * CREATE GALLERY
+         * ==========================================
+         */
+
+        const gallery = document.getElementById("photoGrid");
+
+        photos.forEach((photo, index) => {
+
+            const card = document.createElement("article");
+            card.className = "photo-card";
+
+            card.innerHTML = `
+                <div class="photo-image">
+                    <img
+                        src="gallery/${photo.file}"
+                        alt="${photo.description}"
+                        loading="lazy"
+                    >
+                </div>
+            `;
+
+    /*
+     * Clicking a photograph opens
+     * the lightbox with its description.
+     */
+    card.addEventListener("click", () => {
+        openLightbox(
+            `gallery/${photo.file}`,
+            photo.description
+        );
+    });
+
+    gallery.appendChild(card);
+});
+
+
+/*
+ * ==========================================
+ * LIGHTBOX
+ * ==========================================
+ */
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxCaption =
+    document.getElementById("lightboxCaption");
+
+const lightboxClose =
+    document.getElementById("lightboxClose");
+
+
+function openLightbox(image, caption) {
+
+    lightboxImage.src = image;
+    lightboxImage.alt = caption;
+    lightboxCaption.textContent = caption;
+
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+
+/*
+ * Close using X
+ */
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+/*
+ * Close by clicking outside
+ * the photograph.
+ */
+lightbox.addEventListener("click", (event) => {
+
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+
+});
+
+
+/*
+ * Close using Escape key.
+ */
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+
+});
+
+    </script>
+
+
+</body>
+
+</html>

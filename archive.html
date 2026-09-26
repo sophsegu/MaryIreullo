@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #fbf9f5;
+      --black: #111111;
+      --burgundy: #800020;
+      --grey: #666666;
+      --light-grey: #e2dfd8;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--black);
+      font-family: 'Source Sans 3', sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header & Navigation */
+    header {
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .site-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .site-subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Controls Bar (Search + Filters) */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .search-box input {
+      background: transparent;
+      border: 1px solid var(--light-grey);
+      padding: 8px 14px;
+      font-family: "DM Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s ease;
+      min-width: 240px;
+    }
+
+    .search-box input:focus {
+      border-color: var(--burgundy);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter {
+      background: none;
+      border: 1px solid var(--light-grey);
+      padding: 6px 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter:hover,
+    .filter.active {
+      background-color: var(--burgundy);
+      color: #ffffff;
+      border-color: var(--burgundy);
+    }
+
+    .archive-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--grey);
+      margin-bottom: 2rem;
+    }
+
+    /* Archive Entries */
+    .archive-entry {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--light-grey);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .archive-entry:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .entry-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--burgundy);
+      border-right: 1px solid var(--light-grey);
+      padding-right: 1rem;
+    }
+
+    .entry-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .entry-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .entry-title:hover {
+      color: var(--burgundy);
+    }
+
+    .entry-source {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--grey);
+      text-transform: uppercase;
+    }
+
+    .entry-body {
+      font-size: 0.95rem;
+      color: #333333;
+    }
+
+    blockquote {
+      border-left: 2px solid var(--burgundy);
+      padding-left: 1rem;
+      margin: 0.5rem 0;
+      font-style: italic;
+      color: #444;
+    }
+
+    .entry-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--light-grey);
+    }
+
+    .entry-tags {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--bg);
+      padding: 2px 6px;
+      border-radius: 2px;
+      color: var(--grey);
+    }
+
+    .entry-link {
+      color: var(--burgundy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .entry-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Accessibility Focus Styles */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .archive-entry {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .entry-year {
+        border-right: none;
+        border-bottom: 1px solid var(--light-grey);
+        padding-bottom: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1 class="site-title">Historical Records & Media</h1>
+      <p class="site-subtitle">Archival index of published sources and historical moments</p>
+    </header>
+
+    <section class="controls-bar" aria-label="Archive Controls">
+      <div class="search-box">
+        <input type="text" id="archiveSearch" placeholder="Search archive records..." aria-label="Search archive records">
+      </div>
+
+      <nav class="filters" aria-label="Filter records by category">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="newspaper">Newspapers</button>
+        <button class="filter" data-filter="magazine">Magazines</button>
+        <button class="filter" data-filter="online">Online</button>
+        <button class="filter" data-filter="profile">Profiles</button>
+      </nav>
+    </section>
+
+    <div class="archive-meta">
+      <span class="archive-count" id="sourceCount">02 Sources</span>
+      <span>Ottawa Historical Index</span>
+    </div>
+
+    <main id="archiveEntries">
+      
+      <!-- Entry 1 -->
+      <article class="archive-entry" data-category="online">
+        <div class="entry-year">2025</div>
+        <div class="entry-content">
+          <div class="entry-header">
+            <a href="https://italocanadese.org/2025/11/24/donne-di-ottawa-exhibit-unveiled-at-the-centro-storico-italo-canadese/" target="_blank" rel="noopener noreferrer" class="entry-title">
+              “Donne Di Ottawa” Exhibit Unveiled at the Centro Storico Italo-Canadese
+            </a>
+            <span class="entry-source">Italo-Canadese • By Cassandra Marsillo</span>
+          </div>
+          <div class="entry-body">
+            <p>On October 18, 2025, writer and project lead Anna Romano Milne hosted the unveiling of <em>Donne Di Ottawa: Ci Siamo Anche Noi!</em> (We Are Also Here!), a permanent exhibit at Ottawa’s Centro Storico Italo-Canadese. Supported by a City of Ottawa heritage grant, the project honours Italian-Canadian women who made lasting social, cultural, and political contributions to the nation's capital.</p>
+            <p>The inaugural exhibit features painted portraits by artist Lucia Alloggia and biographies for three local figures: Maria Ierullo (first Italian-descent real estate broker in Ottawa, advocate against expropriation in Little Italy), Rosa Tiezzi (advocate for interned men during WWII), and Jenny Prosperine (organized voting transport for local women in 1968).</p>
+            <blockquote>
+              “It is a reminder that women’s stories are worthy of recognition... It’s a message of inclusion that invites anyone connected to Italy through friendship, family and lived experience to be part of this evolving legacy.”
+            </blockquote>
+          </div>
+          <div class="entry-footer">
+            <div class="entry-tags">
+              <span class="tag">#OttawaHistory</span>
+              <span class="tag">#ItaloCanadese</span>
+              <span class="tag">#Exhibits</span>
+            </div>
+            <a href="https://italocanadese.org/2025/11/24/donne-di-ottawa-exhibit-unveiled-at-the-centro-storico-italo-canadese/" target="_blank" rel="noopener noreferrer" class="entry-link">View Source &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Entry 2 -->
+      <article class="archive-entry" data-category="profile">
+        <div class="entry-year">1950</div>
+        <div class="entry-content">
+          <div class="entry-header">
+            <a href="https://ohfoundation.ca/100-moments/other-mother-mary-ierullo/" target="_blank" rel="noopener noreferrer" class="entry-title">
+              “Other mother” Mary Ierullo
+            </a>
+            <span class="entry-source">The Ottawa Hospital Foundation • Moment 22/100</span>
+          </div>
+          <div class="entry-body">
+            <p>Mary Ierullo had her own children, but she was also the “other mother” to countless young women in Ottawa. After immigrating to Ottawa from Italy as a young girl in 1928, Mary was always inspired to help others.</p>
+            <p>In the 1950s, she saw young pregnant women from back home struggling, so despite not holding a formal role at the hospital, she helped set up the first prenatal clinic for immigrant women at the Civic. She held their hands, literally and figuratively, as they transitioned into motherhood in their new country.</p>
+            <blockquote>
+              “Deal from the heart … Open up to one another and understand each other. We are part of a community and knowing each other makes all the difference.”
+            </blockquote>
+          </div>
+          <div class="entry-footer">
+            <div class="entry-tags">
+              <span class="tag">#OttawaCivic</span>
+              <span class="tag">#Healthcare</span>
+              <span class="tag">#Immigration</span>
+            </div>
+            <a href="https://ohfoundation.ca/100-moments/other-mother-mary-ierullo/" target="_blank" rel="noopener noreferrer" class="entry-link">View Source &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+  <!-- Entry 3 -->
+  <article class="archive-entry" data-category="online">
+    <div class="entry-year">2010</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="https://ottawa.ca/en/arts-heritage-and-events/public-art-and-city-ottawa-art-collection/city-ottawa-art-collection/art-search/postcards-piazzas"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          “Postcards from the Piazzas”
+        </a>
+
+        <span class="entry-source">
+          City of Ottawa • Public Art Collection
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          Along Preston Street in Ottawa's Little Italy, the public art series
+          <em>Postcards from the Piazzas</em> brings together stories, images,
+          and symbols drawn from the history and culture of the local Italian-Canadian
+          community. Created by artist cj fleury, the 15-piece installation was
+          developed through extensive research and conversations with community members.
+        </p>
+
+        <p>
+          Among the stories represented in the Preston Street sculptures is the
+          history of Maria Ierullo and her mother. The work connects their family
+          history with the community's Italian-Canadian heritage, including Maria's
+          work supporting immigrant women through a prenatal clinic, her career in
+          real estate, and her family's sewing and business history.
+        </p>
+
+        <blockquote>
+          “Each piece is a snapshot of someone’s story.”
+        </blockquote>
+
+        <p>
+          The installation was unveiled in 2010 as part of the reconstruction of
+          Preston Street. The sculptures were intended to preserve fragments of the
+          neighbourhood's history and make those stories part of the public landscape.
+        </p>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#MariaIerullo</span>
+          <span class="tag">#LittleItaly</span>
+          <span class="tag">#PublicArt</span>
+          <span class="tag">#OttawaHistory</span>
+        </div>
+
+        <a href="https://ottawa.ca/en/arts-heritage-and-events/public-art-and-city-ottawa-art-collection/city-ottawa-art-collection/art-search/postcards-piazzas"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View Source &rarr;
+        </a>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#2010</span>
+          <span class="tag">#PrestonStreet</span>
+          <span class="tag">#ItalianCanadianHeritage</span>
+        </div>
+
+        <a href="https://capitalcurrent.ca/archive/centretownnews/1997-2016/2010/09/30/new-art-project-unveiled-on-preston-street"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          Read 2010 Article &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Entry 4 -->
+  <article class="archive-entry" data-category="profile">
+    <div class="entry-year">2000</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="https://ilpostino.ca/issues/october-2000/mary-ierullo"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          “An Angel from the ‘Italian Village’”
+        </a>
+
+        <span class="entry-source">
+          Il Postino • By Zeljka Gaspar
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          Published in the October 2000 issue of <em>Il Postino</em>, this profile
+          presents Mary Ierullo as a central figure in Ottawa's Italian-Canadian
+          community. The article recounts her experiences as a court interpreter,
+          community advocate, and real estate professional, including her opening
+          of her own real estate office after becoming a licensed broker.
+        </p>
+
+        <p>
+          The profile also documents Mary's deep connection to the community she
+          called the “Italian Village,” describing the ways she and her husband
+          helped newcomers and supported families in Ottawa. Her work as an
+          interpreter also brought her into contact with immigrants and allowed
+          her to hear and understand the difficulties they faced.
+        </p>
+
+        <blockquote>
+          “My role model all along the way was my mother, Angela Maria Messina.”
+        </blockquote>
+
+        <p>
+          Mary describes her mother, Angela Maria Messina, as the person who taught
+          her to stand on her own feet, help others, and have the courage to move
+          forward. After coming to Ottawa, Angela opened an embroidery workshop on
+          George Street, where Mary helped her for eight years until her mother's
+          death in 1948.
+        </p>
+
+        <p>
+          Together, the article's account of Mary and her mother's lives provides
+          an important record of the family history behind their contributions to
+          Ottawa's Italian-Canadian community.
+        </p>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#MaryIerullo</span>
+          <span class="tag">#AngelaMariaMessina</span>
+          <span class="tag">#ItalianVillage</span>
+          <span class="tag">#OttawaHistory</span>
+        </div>
+
+        <a href="https://ilpostino.ca/issues/october-2000/mary-ierullo"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View Source &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Entry 5 -->
+  <article class="archive-entry" data-category="profile">
+    <div class="entry-year">2003</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="https://capitalcurrent.ca/archive/centretownnews/1997-2016/2003/03/28/a-woman-of-many-firsts/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          “A Woman of Many Firsts”
+        </a>
+
+        <span class="entry-source">
+          Centretown News • March 28, 2003
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          Published in the <em>Centretown News</em> on March 28, 2003,
+          <em>A Woman of Many Firsts</em> is a contemporary profile documenting
+          the life and accomplishments of Maria Ierullo and her place in
+          Ottawa's Italian-Canadian history.
+        </p>
+
+        <p>
+          The article provides another historical record of Maria's contributions
+          to the Ottawa community and the many pioneering roles she held throughout
+          her life. It forms part of the contemporary press record preserving her
+          story and the impact of her work.
+        </p>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#MariaIerullo</span>
+          <span class="tag">#OttawaHistory</span>
+          <span class="tag">#ItalianCanadianHistory</span>
+          <span class="tag">#WomenInHistory</span>
+        </div>
+
+        <a href="https://capitalcurrent.ca/archive/centretownnews/1997-2016/2003/03/28/a-woman-of-many-firsts/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View Source &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+
+  <!-- Entry 6 -->
+  <article class="archive-entry" data-category="profile">
+    <div class="entry-year">2001</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="https://epe.lac-bac.gc.ca/100/205/301/ic/cdc/OttawaItalians/Community/stAnthonysSchool.htm"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          St. Anthony's School
+        </a>
+
+        <span class="entry-source">
+          Il Postino • January 2001
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          Originally published in the January 2001 issue of <em>Il Postino</em>,
+          this historical record documents St. Anthony's School and its place
+          within Ottawa's Italian-Canadian community.
+        </p>
+
+        <p>
+          Preserved through Library and Archives Canada's archived collection,
+          the article provides additional historical context for the community
+          institutions and neighbourhood that shaped the lives of Ottawa's
+          Italian-Canadian families.
+        </p>
+
+        <p>
+          The record forms part of the broader historical context surrounding
+          Maria Ierullo and her family's life and contributions within Ottawa's
+          Italian-Canadian community.
+        </p>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#StAnthonysSchool</span>
+          <span class="tag">#LittleItaly</span>
+          <span class="tag">#OttawaHistory</span>
+          <span class="tag">#ItalianCanadianHistory</span>
+        </div>
+
+        <a href="https://epe.lac-bac.gc.ca/100/205/301/ic/cdc/OttawaItalians/Community/stAnthonysSchool.htm"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View Archive &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Entry 7 -->
+  <article class="archive-entry" data-category="newspaper">
+    <div class="entry-year">1959</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="pdfs/AroundTheTown.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          “Around the Town with Walter Gilhooly”
+        </a>
+
+        <span class="entry-source">
+          Ottawa Journal • September 5, 1959
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          This September 5, 1959 article from the <em>Ottawa Journal</em>
+          documents Maria Ierullo's pioneering career in Ottawa real estate
+          and her contributions to the city's Italian-Canadian community.
+        </p>
+
+        <p>
+          The article describes Maria as the first Italian real estate broker
+          in Ottawa, beginning her brokerage career in October 1957 after
+          passing her real estate broker examination with a score of 97%.
+          Her office employed ten full-time agents and served clients in six
+          languages: English, Italian, French, Spanish, Portuguese, and Hebrew.
+        </p>
+
+        <p>
+          It also highlights her community work, including six years as a
+          volunteer interpreter at the Ottawa Civic Hospital's prenatal clinic
+          and her efforts, with Father Jerome, to help unemployed members of
+          St. Anthony's parish find work.
+        </p>
+
+        <blockquote>
+          Her real estate signs were displayed in red, white, and green —
+          the colours of the Italian tricolour.
+        </blockquote>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#MariaIerullo</span>
+          <span class="tag">#RealEstate</span>
+          <span class="tag">#OttawaHistory</span>
+          <span class="tag">#ItalianCanadianHistory</span>
+        </div>
+
+        <a href="pdfs/AroundTheTown.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View PDF &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Entry 8 -->
+  <article class="archive-entry" data-category="newspaper">
+    <div class="entry-year">2005</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="pdfs/WillowStreet.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          “Mary Ierullo: A Willow Street Angel”
+        </a>
+
+        <span class="entry-source">
+          Lauren Gillieson • 2005 • Partial Clipping
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          This 2005 newspaper clipping, written by Lauren Gillieson,
+          documents Maria Ierullo and her daughter Angela's community
+          involvement in Ottawa's Willow Street neighbourhood.
+        </p>
+
+        <p>
+          The article describes how Maria and Angela organized the
+          “Willow Street angels,” involving neighbourhood children in
+          community activities such as planting flowers and trees and
+          helping clean and improve the Willow Street neighbourhood.
+        </p>
+
+        <p>
+          Although only a partial clipping has been preserved, the article
+          provides a contemporary record of Maria's efforts to bring
+          neighbourhood residents together and encourage children to take
+          an active role in their community.
+        </p>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#MariaIerullo</span>
+          <span class="tag">#WillowStreet</span>
+          <span class="tag">#Community</span>
+          <span class="tag">#OttawaHistory</span>
+        </div>
+
+        <a href="pdfs/WillowStreet.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View PDF &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Entry 9 -->
+  <article class="archive-entry" data-category="newspaper">
+    <div class="entry-year">1997</div>
+    <div class="entry-content">
+
+      <div class="entry-header">
+        <a href="pdfs/DealFromTheHeart.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-title">
+          “Deal from the Heart”
+        </a>
+
+        <span class="entry-source">
+          Bob Vandenburg • Buzz • July 1997
+        </span>
+      </div>
+
+      <div class="entry-body">
+        <p>
+          Published in <em>Buzz</em> in July 1997, Bob Vandenburg's
+          <em>Deal from the Heart</em> profiles Maria Ierullo and her
+          pioneering career as a real estate broker and community advocate
+          in Ottawa.
+        </p>
+
+        <p>
+          The article describes Maria as one of the first Italian women to
+          become a real estate broker in Canada. After opening her Rochester
+          Street office in 1959, she built a business that at one point
+          employed sixteen agents, most of them women. Her clients included
+          Italian immigrants as well as newcomers from Portugal, Britain,
+          Russia, Ireland, and Mexico.
+        </p>
+
+        <p>
+          Beyond real estate, Maria was known for helping members of her
+          community by providing free advice, translating documents, and
+          interpreting for courthouses, schools, and churches. The article
+          also describes her efforts to help newcomers and her broader
+          commitment to lending a hand whenever she could.
+        </p>
+
+        <p>
+          Maria's distinctive real estate signs incorporated the red, white,
+          and green of the Italian tricolour. According to the article, the
+          design helped establish a visual tradition that other Italian-owned
+          businesses in the neighbourhood subsequently followed.
+        </p>
+
+        <blockquote>
+          “Deal from the heart. Open up to one another and understand each
+          other. It makes all the difference.”
+        </blockquote>
+      </div>
+
+      <div class="entry-footer">
+        <div class="entry-tags">
+          <span class="tag">#MariaIerullo</span>
+          <span class="tag">#RealEstate</span>
+          <span class="tag">#ItalianCanadianHistory</span>
+          <span class="tag">#Community</span>
+        </div>
+
+        <a href="pdfs/DealFromTheHeart.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="entry-link">
+          View PDF &rarr;
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+<!-- Entry 10 -->
+<article class="archive-entry" data-category="newspaper">
+    <div class="entry-year">2003</div>
+
+    <div class="entry-content">
+        <div class="entry-header">
+            <a href="pdfs/ToastOfLittleItaly.pdf" target="_blank" rel="noopener noreferrer" class="entry-title">
+                “The Toast of Little Italy: Centretown woman’s life story part of national exhibit”
+            </a>
+            <span class="entry-source">
+                Crystal Rhyno • Centretown News • 2003
+            </span>
+        </div>
+
+        <div class="entry-body">
+            <p>
+                This 2003 article by Crystal Rhyno documents Maria Ierullo’s life and contributions to Ottawa’s Italian-Canadian community, including her role in helping immigrants transition to life in Canada through her work in real estate.
+            </p>
+
+            <p>
+                The article highlights Maria as one of the first Italian-Canadian women realtors in Ottawa. Her career helped open new doors for immigrants and provided support to newcomers as they established themselves in the city.
+            </p>
+
+            <p>
+                Maria’s story was also featured in the national <em>Presenza</em> exhibition, which displayed archival materials from her life and career. These included her real estate business calendar, listing agreements, house sales records, and hand-painted signage in Italian.
+            </p>
+
+            <p>
+                The article also records Maria’s recognition for her longstanding community involvement. She received a lifetime community service award from the Italian-Canadian Women of the Village for her contributions to the people of Preston Street.
+            </p>
+        </div>
+
+        <div class="entry-footer">
+            <div class="entry-tags">
+                <span class="tag">#MariaIerullo</span>
+                <span class="tag">#Presenza</span>
+                <span class="tag">#LittleItaly</span>
+                <span class="tag">#OttawaHistory</span>
+                <span class="tag">#ItalianCanadianHistory</span>
+            </div>
+
+            <a href="pdfs/ToastOfLittleItaly.pdf" target="_blank" rel="noopener noreferrer" class="entry-link">
+                View PDF &rarr;
+            </a>
+        </div>
+    </div>
+</article>
+
+<!-- Entry 11 -->
+<article class="archive-entry" data-category="newspaper">
+    <div class="entry-year">2003</div>
+
+    <div class="entry-content">
+        <div class="entry-header">
+            <a href="pdfs/FromItalyToCanadians.pdf" target="_blank" rel="noopener noreferrer" class="entry-title">
+                “From Italy to Canadians with Love”
+            </a>
+            <span class="entry-source">
+                Tony Lofaro • Ottawa Citizen • June 13, 2003
+            </span>
+        </div>
+
+        <div class="entry-body">
+            <p>
+                Published in the <em>Ottawa Citizen</em> on June 13, 2003, Tony Lofaro’s article documents Maria Ierullo’s life and her contributions to Ottawa’s Italian-Canadian community.
+            </p>
+
+            <p>
+                The article highlights Maria’s role in the <em>Presenza</em> exhibition at the Museum of Civilization, which explored the Italian-Canadian immigrant experience and featured artifacts and archival materials from her life and career.
+            </p>
+
+            <p>
+                It describes Maria as the first female real estate broker in Ottawa and possibly in Canada. Beyond real estate, she helped establish the first prenatal clinic for immigrant women at the Civic Hospital and worked as a freelance court interpreter, helping Italian immigrants navigate the court system.
+            </p>
+
+            <p>
+                Maria also worked with priests at St. Anthony’s Church to welcome new immigrants to Ottawa. During the mid-1960s, she advocated for homeowners whose properties were being expropriated, fighting for them to receive fair market value for their homes.
+            </p>
+
+            <p>
+                The article portrays Maria as deeply religious and committed to helping others. Although she had once considered entering a convent, she instead found her calling through community service and helping people in need. It also recognizes her as a champion of women’s rights.
+            </p>
+        </div>
+
+        <div class="entry-footer">
+            <div class="entry-tags">
+                <span class="tag">#MariaIerullo</span>
+                <span class="tag">#Presenza</span>
+                <span class="tag">#RealEstate</span>
+                <span class="tag">#LittleItaly</span>
+                <span class="tag">#OttawaHistory</span>
+                <span class="tag">#ItalianCanadianHistory</span>
+            </div>
+
+            <a href="pdfs/FromItalyToCanadians.pdf" target="_blank" rel="noopener noreferrer" class="entry-link">
+                View PDF &rarr;
+            </a>
+        </div>
+    </div>
+</article>
+
+<!-- Entry 12 -->
+<article class="archive-entry" data-category="magazine">
+    <div class="entry-year">2007</div>
+
+    <div class="entry-content">
+        <div class="entry-header">
+            <a href="pdfs/DecadeOfLeaders.pdf" target="_blank" rel="noopener noreferrer" class="entry-title">
+                “Decade of Leaders”
+            </a>
+            <span class="entry-source">
+                Progressive Choices • Spring 2007
+            </span>
+        </div>
+
+        <div class="entry-body">
+            <p>
+                The Spring 2007 edition of <em>Progressive Choices</em> celebrates 100 women whose lives and accomplishments helped shape the previous century. Maria Ierullo was selected to represent the 1950s.
+            </p>
+
+            <p>
+                The feature recounts Maria’s immigration from Italy to Ottawa and the challenges she faced while raising three children and caring for her husband during his health difficulties. It describes how she went on to become the first Italian woman to pass her real estate examination in the 1950s.
+            </p>
+
+            <p>
+                Maria became a trusted friend and adviser to many members of Ottawa’s Italian-Canadian community, helping immigrants find homes and establish themselves in Canada. She took particular pride in the fact that none of her clients lost their homes for financial reasons.
+            </p>
+
+            <p>
+                The article also highlights Maria’s role as a founder of the Independent Realtors Association and her many years serving as a court interpreter for Italians facing legal difficulties.
+            </p>
+
+            <p>
+                Through her real estate work, community involvement, and service as an interpreter, Maria became a source of guidance and support for many newcomers to Ottawa.
+            </p>
+        </div>
+
+        <div class="entry-footer">
+            <div class="entry-tags">
+                <span class="tag">#MariaIerullo</span>
+                <span class="tag">#ProgressiveChoices</span>
+                <span class="tag">#WomenInHistory</span>
+                <span class="tag">#1950s</span>
+                <span class="tag">#RealEstate</span>
+                <span class="tag">#ItalianCanadianHistory</span>
+            </div>
+
+            <a href="pdfs/DecadeOfLeaders.pdf" target="_blank" rel="noopener noreferrer" class="entry-link">
+                View PDF &rarr;
+            </a>
+        </div>
+    </div>
+</article>
+
+    </main>
+  </div>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter');
+    const entries = document.querySelectorAll('.archive-entry');
+    const searchInput = document.getElementById('archiveSearch');
+    const countDisplay = document.getElementById('sourceCount');
+
+    function updateArchive() {
+      const activeFilter = document.querySelector('.filter.active').getAttribute('data-filter');
+      const searchQuery = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      entries.forEach(entry => {
+        const category = entry.getAttribute('data-category');
+        const textContent = entry.textContent.toLowerCase();
+
+        const matchesFilter = (activeFilter === 'all' || category === activeFilter);
+        const matchesSearch = (searchQuery === '' || textContent.includes(searchQuery));
+
+        if (matchesFilter && matchesSearch) {
+          entry.style.display = 'grid';
+          visibleCount++;
+        } else {
+          entry.style.display = 'none';
+        }
+      });
+
+      countDisplay.textContent = `${String(visibleCount).padStart(2, '0')} ${visibleCount === 1 ? 'Source' : 'Sources'}`;
+    }
+
+    // Filter Button Click Listener
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        updateArchive();
+      });
+    });
+
+    // Search Input Listener
+    searchInput.addEventListener('input', updateArchive);
+
+    // Initial Count Check
+    updateArchive();
+  </script>
+</body>
+</html>

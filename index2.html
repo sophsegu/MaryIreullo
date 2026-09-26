@@ -1,0 +1,1705 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maria Ierullo — Life and Acheivements</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f1eb;
+            color: #171717;
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --black: #171717;
+            --dark-grey: #2d2d2d;
+            --grey: #77736d;
+            --light-grey: #d8d3ca;
+            --paper: #f4f1eb;
+            --white: #fbfaf7;
+            --burgundy: #641f2b;
+            --gold: #a7834d;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(244, 241, 235, 0.95);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        nav {
+            height: 82px;
+            padding: 0 6vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            margin-top: 5px;
+
+            font-family: "DM Mono", monospace;
+            font-size: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--grey);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav a {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: var(--dark-grey);
+
+            transition: color .2s ease;
+        }
+
+        nav a:hover {
+            color: var(--burgundy);
+        }
+
+
+        .hero {
+            min-height: calc(100vh - 82px);
+
+            padding: 7vw 8vw;
+
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 7vw;
+            align-items: center;
+        }
+
+        .hero-label {
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            color: var(--burgundy);
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+
+            font-size: clamp(65px, 9vw, 135px);
+            line-height: .88;
+
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--burgundy);
+        }
+
+        .hero-description {
+            max-width: 470px;
+
+            font-size: 17px;
+            font-weight: 300;
+
+            color: var(--grey);
+
+            margin-bottom: 35px;
+        }
+
+        .archive-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 14px 22px;
+
+            border: 1px solid var(--black);
+
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            transition: all .25s ease;
+        }
+
+        .archive-button:hover {
+            background: var(--black);
+            color: white;
+        }
+
+
+        .hero-image {
+            height: 75vh;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .photo-placeholder {
+            min-height: 650px;
+
+            background:
+                linear-gradient(
+                    rgba(70, 60, 50, .1),
+                    rgba(70, 60, 50, .1)
+                ),
+                #c8c1b7;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .photo-placeholder::before {
+            content: "";
+
+            position: absolute;
+            inset: 25px;
+
+            border: 1px solid rgba(255,255,255,.5);
+        }
+
+        .placeholder-text {
+            text-align: center;
+
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: #665f57;
+        }
+
+        .photo-caption {
+            display: flex;
+            justify-content: space-between;
+
+            padding-top: 12px;
+
+            font-family: "DM Mono", monospace;
+            font-size: 9px;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: var(--grey);
+        }
+
+
+        .introduction {
+            background: var(--black);
+            color: white;
+
+            padding: 130px 12vw;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+        }
+
+        .section-number {
+            font-family: "DM Mono", monospace;
+            font-size: 11px;
+
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .introduction h2 {
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+
+            font-size: clamp(45px, 6vw, 78px);
+            line-height: 1;
+
+            max-width: 850px;
+        }
+
+        .introduction h2 em {
+            color: #bda889;
+        }
+
+
+        .archive-intro {
+            padding: 120px 8vw 70px;
+        }
+
+        .archive-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            border-bottom: 1px solid var(--light-grey);
+
+            padding-bottom: 30px;
+        }
+
+        .archive-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 65px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .archive-header p {
+            max-width: 360px;
+
+            font-size: 14px;
+            color: var(--grey);
+        }
+
+
+
+        .featured {
+            padding: 30px 8vw 120px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            gap: 35px;
+        }
+
+        .artifact-large {
+            min-height: 650px;
+
+            background: #d0c9bd;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .artifact-large::after {
+            content: "ARCHIVAL PHOTOGRAPH";
+
+            position: absolute;
+            bottom: 20px;
+            left: 25px;
+
+            font-family: "DM Mono", monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+
+            color: #625d56;
+        }
+
+        .featured-text {
+            padding: 35px 10px;
+        }
+
+        .artifact-number {
+            font-family: "DM Mono", monospace;
+            color: var(--gold);
+
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .featured-text h3 {
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+
+            font-size: 55px;
+            line-height: 1;
+
+            margin: 25px 0;
+        }
+
+        .featured-text p {
+            color: var(--grey);
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .read-more {
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: var(--burgundy);
+        }
+
+
+        .collection {
+            padding: 0 8vw 130px;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .artifact {
+            background: var(--white);
+            padding-bottom: 25px;
+        }
+
+        .artifact-image {
+            height: 360px;
+
+            background: #cbc4b9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .artifact-image span {
+            font-family: "DM Mono", monospace;
+            font-size: 9px;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            color: #666057;
+        }
+
+        .artifact-info {
+            padding: 22px 22px 0;
+        }
+
+        .artifact-year {
+            font-family: "DM Mono", monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+
+            color: var(--gold);
+        }
+
+        .artifact h3 {
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+
+            font-size: 28px;
+
+            margin: 8px 0;
+        }
+
+        .artifact p {
+            font-size: 13px;
+            color: var(--grey);
+        }
+
+
+        .timeline-section {
+            background: var(--white);
+
+            padding: 130px 8vw;
+        }
+
+        .timeline-title {
+            margin-bottom: 80px;
+        }
+
+        .timeline-title span {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+
+            color: var(--burgundy);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .timeline-title h2 {
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+            font-size: 65px;
+        }
+
+        .timeline {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 50px;
+
+            padding: 45px 0;
+
+            border-top: 1px solid var(--light-grey);
+        }
+
+        .timeline-year {
+            font-family: "DM Mono", monospace;
+
+            font-size: 13px;
+            color: var(--burgundy);
+
+            letter-spacing: 1px;
+        }
+
+        .timeline-content h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 38px;
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            max-width: 650px;
+
+            color: var(--grey);
+            font-size: 14px;
+        }
+
+
+        .documents {
+            padding: 130px 8vw;
+
+            background: #e8e3da;
+        }
+
+        .documents-title {
+            text-align: center;
+
+            margin-bottom: 70px;
+        }
+
+        .documents-title span {
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 3px;
+
+            color: var(--burgundy);
+        }
+
+        .documents-title h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 65px;
+            font-weight: 400;
+        }
+
+        .document-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .newspaper {
+            background: #f7f3e9;
+
+            padding: 40px;
+
+            box-shadow: 0 15px 35px rgba(0,0,0,.08);
+
+            transform: rotate(-1deg);
+        }
+
+        .newspaper:nth-child(2) {
+            transform: rotate(1.2deg);
+        }
+
+        .newspaper-header {
+            border-bottom: 3px double #222;
+
+            padding-bottom: 10px;
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+            font-size: 25px;
+        }
+
+        .newspaper-date {
+            font-family: "DM Mono", monospace;
+
+            font-size: 8px;
+            text-align: center;
+
+            margin: 10px 0 25px;
+        }
+
+        .newspaper h3 {
+            font-family: Georgia, serif;
+
+            font-size: 32px;
+            line-height: 1.05;
+
+            margin-bottom: 15px;
+        }
+
+        .newspaper p {
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+            color: #393632;
+        }
+
+
+        .awards {
+            padding: 130px 8vw;
+            background: var(--black);
+            color: white;
+        }
+
+        .awards-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+
+            margin-bottom: 80px;
+        }
+
+        .awards-header span {
+            font-family: "DM Mono", monospace;
+
+            color: var(--gold);
+
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .awards-header h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 65px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .awards-header p {
+            color: #aaa;
+
+            font-size: 14px;
+            max-width: 450px;
+
+            align-self: end;
+        }
+
+        .award-list {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .award {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 50px;
+
+            padding: 35px 0;
+
+            border-top: 1px solid #3b3b3b;
+        }
+
+        .award-year {
+            font-family: "DM Mono", monospace;
+
+            color: var(--gold);
+            font-size: 12px;
+        }
+
+        .award h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 35px;
+            font-weight: 400;
+        }
+
+        .award p {
+            color: #999;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================================================
+           POETRY
+        ========================================================= */
+
+        .poetry {
+            min-height: 650px;
+
+            padding: 130px 15vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .poetry-inner {
+            max-width: 850px;
+        }
+
+        .poetry-label {
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+            letter-spacing: 4px;
+
+            color: var(--burgundy);
+        }
+
+        .poetry h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 70px;
+            font-weight: 400;
+
+            margin: 20px 0 40px;
+        }
+
+        .poem {
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+            font-style: italic;
+            line-height: 1.5;
+
+            color: #45413c;
+        }
+
+        .poem-author {
+            margin-top: 30px;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            color: var(--grey);
+        }
+
+
+        /* =========================================================
+           FINAL SECTION
+        ========================================================= */
+
+        .legacy {
+            background: var(--burgundy);
+            color: white;
+
+            padding: 130px 10vw;
+
+            text-align: center;
+        }
+
+        .legacy span {
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+
+            color: #d1b88a;
+        }
+
+        .legacy h2 {
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: clamp(50px, 7vw, 90px);
+
+            line-height: .95;
+
+            max-width: 850px;
+
+            margin: 25px auto;
+        }
+
+        .legacy p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: #e3d5d7;
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #111;
+            color: white;
+
+            padding: 60px 8vw;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .footer-name {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+        }
+
+        footer p {
+            font-family: "DM Mono", monospace;
+
+            font-size: 8px;
+            letter-spacing: 2px;
+
+            color: #777;
+            text-transform: uppercase;
+        }
+
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 0 5vw;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 70px 6vw;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .photo-placeholder {
+                min-height: 500px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .archive-header {
+                display: block;
+            }
+
+            .archive-header p {
+                margin-top: 25px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .document-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-header {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .photo-placeholder {
+                min-height: 400px;
+            }
+
+            .introduction,
+            .archive-intro,
+            .featured,
+            .collection,
+            .timeline-section,
+            .documents,
+            .awards,
+            .poetry,
+            .legacy {
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-header h2,
+            .timeline-title h2,
+            .documents-title h2,
+            .awards-header h2,
+            .poetry h2 {
+                font-size: 48px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .award {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .newspaper {
+                padding: 25px;
+            }
+
+            footer {
+                display: block;
+                text-align: center;
+            }
+
+            footer p {
+                margin-top: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <nav>
+
+        <a href="#" class="logo">
+            <span class="logo-name">Maria Ierullo</span>
+            <span class="logo-subtitle">The Archive</span>
+        </a>
+
+        <ul>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#archive">Archive</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#documents">Documents</a></li>
+            <li><a href="#legacy">Legacy</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <div class="hero-label">
+            The Maria Ierullo Collection
+        </div>
+
+        <h1>
+            Life and
+            <span>Acheivements</span>
+        </h1>
+
+        <p class="hero-description">
+            A woman of many firsts.
+        </p>
+
+        <a href="archive.html" class="archive-link">
+            Explore the archive →
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+        <img src="images.jpg"
+                  alt="Maria Ierullo">
+
+        <div class="photo-placeholder">
+
+            <div class="placeholder-text">
+                Maria Ierullo<br>
+                <br>
+                Portrait photograph
+            </div>
+
+        </div>
+
+        <div class="photo-caption">
+            <span>Maria Ierullo</span>
+            <span>Photograph · Family Collection</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="introduction" id="story">
+
+    <div class="intro-grid">
+
+        <div>
+            <div class="section-number">
+                01 — HER STORY
+            </div>
+        </div>
+
+        <div>
+
+            <h2>
+                One woman.
+                <br>
+                <em>Many firsts.</em>
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="archive-intro" id="archive">
+
+    <div class="archive-header">
+
+        <div>
+            <h2>The Collection</h2>
+        </div>
+
+        <p>
+            Photographs, documents, newspaper articles,
+            awards and memories preserved to tell Maria's story.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="featured">
+
+    <div class="featured-grid">
+
+        <div class="artifact-large">
+
+            <!-- Replace with actual archival image -->
+
+            <div class="placeholder-text">
+                <strong>Featured Photograph</strong>
+                <br><br>
+                Replace with Maria's<br>
+                archival photograph
+            </div>
+
+        </div>
+
+
+        <div class="featured-text">
+
+            <div class="artifact-number">
+                COLLECTION 01
+            </div>
+
+            <h3>
+                A woman ahead of her time.
+            </h3>
+
+            <p>
+                Maria Ierullo built a life across professions
+                and communities. Her work in real estate,
+                translation and community service allowed her
+                to help families navigate a rapidly changing
+                Ottawa.
+            </p>
+
+            <a href="#" class="read-more">
+                Read her story →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="collection">
+
+    <div class="collection-grid">
+
+
+        <article class="artifact">
+
+            <div class="artifact-image">
+
+                <span>
+                    Real Estate Photograph
+                </span>
+
+            </div>
+
+            <div class="artifact-info">
+
+                <div class="artifact-year">
+                    1950s
+                </div>
+
+                <h3>
+                    The Pioneer
+                </h3>
+
+                <p>
+                    Maria's career as a pioneering
+                    Italian-Canadian real estate broker.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-image">
+
+                <span>
+                    Court Document
+                </span>
+
+            </div>
+
+            <div class="artifact-info">
+
+                <div class="artifact-year">
+                    ARCHIVE
+                </div>
+
+                <h3>
+                    The Translator
+                </h3>
+
+                <p>
+                    Her work helping bridge language
+                    barriers in the courtroom.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-image">
+
+                <span>
+                    Community Photograph
+                </span>
+
+            </div>
+
+            <div class="artifact-info">
+
+                <div class="artifact-year">
+                    OTTAWA
+                </div>
+
+                <h3>
+                    The Advocate
+                </h3>
+
+                <p>
+                    Her commitment to Italian women,
+                    families and the wider community.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-image">
+
+                <span>
+                    Family Photograph
+                </span>
+
+            </div>
+
+            <div class="artifact-info">
+
+                <div class="artifact-year">
+                    FAMILY COLLECTION
+                </div>
+
+                <h3>
+                    The Woman
+                </h3>
+
+                <p>
+                    Behind the professional achievements
+                    was a daughter, mother, friend and poet.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-image">
+
+                <span>
+                    Award / Certificate
+                </span>
+
+            </div>
+
+            <div class="artifact-info">
+
+                <div class="artifact-year">
+                    RECOGNITION
+                </div>
+
+                <h3>
+                    The Legacy
+                </h3>
+
+                <p>
+                    The honours and recognition that
+                    preserve Maria's contribution.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-image">
+
+                <span>
+                    Manuscript
+                </span>
+
+            </div>
+
+            <div class="artifact-info">
+
+                <div class="artifact-year">
+                    HER WORDS
+                </div>
+
+                <h3>
+                    The Poet
+                </h3>
+
+                <p>
+                    A collection of Maria's poetry and
+                    personal writings.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="timeline-section" id="timeline">
+
+    <div class="timeline-title">
+
+        <span>
+            02 — A LIFE IN TIME
+        </span>
+
+        <h2>
+            Her Journey
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                EARLY YEARS
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    A new beginning
+                </h3>
+
+                <p>
+                    Maria begins building a life and career
+                    in Ottawa, becoming part of the growing
+                    Italian-Canadian community.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                1950s
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Breaking into real estate
+                </h3>
+
+                <p>
+                    Maria becomes a pioneering Italian-Canadian
+                    woman in the real estate profession.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                CAREER
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    A voice in the courtroom
+                </h3>
+
+                <p>
+                    As a court translator, Maria helps people
+                    overcome language barriers and navigate
+                    important institutions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                COMMUNITY
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    Supporting Italian women
+                </h3>
+
+                <p>
+                    Maria manages a prenatal clinic serving
+                    Italian women in Ottawa, providing support
+                    to women and families in her community.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                THROUGHOUT HER LIFE
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    A life of service
+                </h3>
+
+                <p>
+                    Across her professional and community
+                    work, Maria continues to advocate for
+                    families and newcomers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                HER WORDS
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    The poet
+                </h3>
+
+                <p>
+                    Alongside her professional life, Maria
+                    expresses herself through poetry and
+                    personal writing.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="documents" id="documents">
+
+    <div class="documents-title">
+
+        <span>
+            03 — FROM THE ARCHIVES
+        </span>
+
+        <h2>
+            The Record
+        </h2>
+
+    </div>
+
+
+    <div class="document-grid">
+
+
+        <article class="newspaper">
+
+            <div class="newspaper-header">
+                THE OTTAWA ARCHIVE
+            </div>
+
+            <div class="newspaper-date">
+                HISTORICAL DOCUMENT · DATE TO BE ADDED
+            </div>
+
+            <h3>
+                A woman breaking new ground
+            </h3>
+
+            <p>
+                Insert an actual newspaper clipping,
+                article or historical document here.
+
+                This section is intentionally designed
+                to look like a historical newspaper,
+                allowing original archival material
+                to become part of the visual design.
+            </p>
+
+        </article>
+
+
+        <article class="newspaper">
+
+            <div class="newspaper-header">
+                FAMILY ARCHIVE
+            </div>
+
+            <div class="newspaper-date">
+                ORIGINAL DOCUMENT · FAMILY COLLECTION
+            </div>
+
+            <h3>
+                Preserving the evidence
+            </h3>
+
+            <p>
+                Original certificates, letters, awards,
+                photographs and other documents can
+                be displayed here with a short
+                description explaining their significance.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<section class="awards">
+
+    <div class="awards-header">
+
+        <div>
+
+            <span>
+                04 — RECOGNITION
+            </span>
+
+            <h2>
+                Her Legacy
+            </h2>
+
+        </div>
+
+        <p>
+            Recognition is only one part of Maria's story,
+            but each honour provides another piece of the
+            record of the impact she had on her community.
+        </p>
+
+    </div>
+
+
+    <div class="award-list">
+
+
+        <div class="award">
+
+            <div class="award-year">
+                HONOUR
+            </div>
+
+            <div>
+                <h3>
+                    Maria Ierullo Award
+                </h3>
+
+                <p>
+                    Details about the award and its connection
+                    to Maria's legacy can be placed here.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="award">
+
+            <div class="award-year">
+                RECOGNITION
+            </div>
+
+            <div>
+                <h3>
+                    Community Recognition
+                </h3>
+
+                <p>
+                    Add additional awards, honours,
+                    certificates or acknowledgements here.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="award">
+
+            <div class="award-year">
+                ARCHIVE
+            </div>
+
+            <div>
+                <h3>
+                    A Life Remembered
+                </h3>
+
+                <p>
+                    Additional recognition can be added
+                    as the family archive grows.
+                </p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="poetry">
+
+    <div class="poetry-inner">
+
+        <div class="poetry-label">
+            05 — HER WORDS
+        </div>
+
+        <h2>
+            The Poet
+        </h2>
+
+        <div class="poem">
+
+            “Insert a short passage from Maria's
+            poetry here. Her own words should
+            speak for her.”
+
+        </div>
+
+        <div class="poem-author">
+            Maria Ierullo · Personal Collection
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LEGACY
+========================================================= -->
+
+<section class="legacy" id="legacy">
+
+    <span>
+        06 — THE LEGACY
+    </span>
+
+    <h2>
+        A life worth remembering.
+    </h2>
+
+    <p>
+        The archive continues through the photographs,
+        documents, stories and memories preserved by
+        the people who knew Maria and the community
+        she helped build.
+    </p>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-name">
+        Maria Ierullo
+    </div>
+
+    <p>
+        A life of service · A legacy preserved
+    </p>
+
+</footer>
+
+
+</body>
+</html>
