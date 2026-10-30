@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Bibliography of newspaper articles, magazine features, online profiles, historical records, and archival materials documenting Maria Ierullo’s life and legacy.">
+
+  <title>Bibliography &amp; Sources | Maria Ierullo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f2e9;
+      --paper: #fffdf8;
+      --burgundy: #641f2b;
+      --burgundy-dark: #46151e;
+      --dark: #24211f;
+      --gold: #b08a4a;
+      --muted: #746d65;
+      --border: #ded4c6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: Inter, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 7%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(247, 242, 233, .96);
+    }
+
+    .brand {
+      font: 500 27px 'Cormorant Garamond', serif;
+      color: var(--burgundy);
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+    }
+
+    .nav-links a:hover,
+    .back-link:hover {
+      color: var(--burgundy);
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: var(--burgundy);
+      color: white;
+      padding: 78px 8% 84px;
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #d8bd83;
+      font: 11px 'DM Mono', monospace;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font: 500 clamp(48px, 7vw, 82px)/.98 'Cormorant Garamond', serif;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: #eee2df;
+      font-size: 16px;
+    }
+
+    .page-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 56px 24px 100px;
+    }
+
+    .intro-note {
+      max-width: 800px;
+      margin-bottom: 35px;
+      color: var(--muted);
+    }
+
+    /* ARCHIVAL CONTRIBUTION */
+
+    .archival-contribution {
+      margin: 0 0 48px;
+      padding: 34px 36px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+    }
+
+    .archival-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font: 10px 'DM Mono', monospace;
+      margin-bottom: 9px;
+    }
+
+    .archival-contribution h2 {
+      color: var(--burgundy);
+      font: 600 clamp(28px, 3vw, 36px)/1.15 'Cormorant Garamond', serif;
+      margin-bottom: 4px;
+    }
+
+    .archival-role {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .archival-contribution p:not(.archival-label):not(.archival-role) {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 820px;
+      margin-bottom: 14px;
+    }
+
+    .archival-contribution p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .archival-note {
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* BIBLIOGRAPHY */
+
+    .bibliography-tools {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .bibliography-tools input {
+      flex: 1;
+      min-width: 220px;
+      max-width: 460px;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--dark);
+      font: 13px 'DM Mono', monospace;
+    }
+
+    .result-count {
+      color: var(--muted);
+      font: 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .source-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 24px;
+      padding: 27px 30px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+    }
+
+    .source-year {
+      color: var(--gold);
+      font: 500 25px 'Cormorant Garamond', serif;
+      border-right: 1px solid var(--border);
+      padding-right: 16px;
+    }
+
+    .source-type {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font: 10px 'DM Mono', monospace;
+      margin-bottom: 7px;
+    }
+
+    .source-main h2 {
+      color: var(--burgundy);
+      font: 600 clamp(25px, 3vw, 32px)/1.15 'Cormorant Garamond', serif;
+      margin-bottom: 10px;
+    }
+
+    .citation {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .source-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .source-link {
+      display: inline-block;
+      color: var(--burgundy);
+      font: 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 3px;
+    }
+
+    .source-link:hover {
+      color: var(--burgundy-dark);
+      border-color: var(--burgundy);
+    }
+
+    .no-results {
+      display: none;
+      padding: 25px;
+      color: var(--muted);
+      background: var(--paper);
+      border: 1px solid var(--border);
+    }
+
+    .note {
+      margin-top: 32px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 253, 248, .6);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 40px 7%;
+      background: var(--dark);
+      color: #aaa;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer strong {
+      display: block;
+      color: white;
+      font: 500 32px 'Cormorant Garamond', serif;
+      margin-bottom: 5px;
+    }
+
+    footer a {
+      color: #e3c990;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    @media(max-width:650px) {
+
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 6%;
+      }
+
+      .nav-links {
+        gap: 13px 18px;
+      }
+
+      .hero {
+        padding: 58px 7%;
+      }
+
+      .page-content {
+        padding: 40px 16px 70px;
+      }
+
+      .archival-contribution {
+        padding: 26px 22px;
+      }
+
+      .source-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 22px;
+      }
+
+      .source-year {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 0 0 8px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+
+    <a class="brand" href="index.html">Maria Ierullo</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#story">Her Story</a></li>
+      <li><a href="index.html#stories">Stories</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="archive.html">Archive</a></li>
+      <li><a href="bibliography.html" aria-current="page">Bibliography</a></li>
+    </ul>
+
+  </nav>
+
+
+  <header class="hero">
+
+    <div class="hero-inner">
+
+      <p class="eyebrow">Research · Records · References</p>
+
+      <h1>Bibliography<br>&amp; Sources</h1>
+
+      <p>
+        A record of published articles, magazine features, online resources,
+        digitized historical materials, and archival records consulted in
+        documenting Maria Ierullo’s life and contributions.
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <main class="page-content">
+
+    <p class="intro-note">
+      This bibliography is maintained separately from the Historical Archive.
+      The archive presents selected records with fuller descriptions; this
+      page provides citation details and a direct route to the source where
+      available.
+    </p>
+
+
+    <!-- ARCHIVAL CONTRIBUTION -->
+
+    <section class="archival-contribution" aria-labelledby="archival-heading">
+
+      <p class="archival-label">Archival Contribution</p>
+
+      <h2 id="archival-heading">City of Ottawa Archives</h2>
+
+      <p class="archival-role">
+        <strong>Archivist:</strong> Theresa Sorel
+      </p>
+
+      <p>
+        The historical materials relating to Maria Ierullo are being
+        documented and organized through archival work with the City of
+        Ottawa Archives. Archivist Theresa Sorel is contributing archival
+        expertise to the documentation, organization, and contextualization
+        of historical records associated with Maria Ierullo.
+      </p>
+
+      <p>
+        This archival work provides professional archival context for the
+        materials referenced throughout this website and supports their
+        preservation as part of Ottawa’s broader historical record.
+      </p>
+
+      <p class="archival-note">
+        The archival work is distinct from the editorial content of this
+        website. Historical claims presented here remain attributed to the
+        original records and published sources from which they are drawn.
+      </p>
+
+    </section>
+
+
+    <!-- BIBLIOGRAPHY SEARCH -->
+
+    <div class="bibliography-tools">
+
+      <input
+        id="bibliographySearch"
+        type="search"
+        placeholder="Search authors, titles, publications…"
+        aria-label="Search bibliography">
+
+      <span
+        class="result-count"
+        id="resultCount"
+        aria-live="polite">
+        19 sources
+      </span>
+
+    </div>
+
+
+    <!-- BIBLIOGRAPHY ENTRIES -->
+
+    <section
+      class="source-list"
+      id="sourceList"
+      aria-label="Bibliography entries">
+
+
+      <!-- 1 -->
+
+      <article
+        class="source-item"
+        data-search="Capital Current New art project unveiled on Preston Street Capital Current September 30 2010 Online article Coverage related to the Postcards from the Piazzas public-art project on Preston Street.">
+
+        <div class="source-year">2010</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Online article</p>
+
+          <h2>New art project unveiled on Preston Street</h2>
+
+          <p class="citation">
+            Capital Current. “New art project unveiled on Preston Street.”
+            <em>Capital Current</em>, September 30, 2010.
+          </p>
+
+          <p class="source-description">
+            Coverage related to the Postcards from the Piazzas public-art
+            project on Preston Street.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://capitalcurrent.ca/archive/centretownnews/1997-2016/2010/09/30/new-art-project-unveiled-on-preston-street/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open source ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 2 -->
+
+      <!-- 2 -->
+
+<article
+  class="source-item"
+  data-search="Katarzyna Pipin A Woman of Many Firsts Centretown News March 28 2003 Online article Contemporary profile of Maria Ierullo’s achievements, childhood, community service, real estate career, recognition by the Italian Canadian Women of the Village, and inclusion in the Presenza exhibition.">
+
+  <div class="source-year">2003</div>
+
+  <div class="source-main">
+    <p class="source-type">Online article</p>
+
+<h2>A Woman of Many Firsts</h2>
+
+<p class="citation">
+  Pipin, Katarzyna. “A Woman of Many Firsts.”
+  <em>Centretown News</em>, March 28, 2003.
+</p>
+
+<p class="source-description">
+  Contemporary profile of Maria Ierullo’s achievements, childhood,
+  community service, pioneering real-estate career, recognition by the
+  Italian Canadian Women of the Village, and inclusion in the
+  <em>Presenza</em> exhibition.
+</p>
+
+<a
+  class="source-link"
+  href="https://capitalcurrent.ca/archive/centretownnews/1997-2016/2003/03/28/a-woman-of-many-firsts/"
+  target="_blank"
+  rel="noopener noreferrer">
+  Open source ↗
+</a>
+  </div>
+</article>
+
+
+      <!-- 3 -->
+
+      <article
+        class="source-item"
+        data-search="City of Ottawa Postcards from the Piazzas City of Ottawa Public Art Collection n.d. Online collection record Collection record for the public-art series connected to stories from Ottawa’s Italian-Canadian community.">
+
+        <div class="source-year">n.d.</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Online collection record</p>
+
+          <h2>Postcards from the Piazzas</h2>
+
+          <p class="citation">
+            City of Ottawa. “Postcards from the Piazzas.”
+            <em>City of Ottawa Public Art Collection</em>, n.d.
+          </p>
+
+          <p class="source-description">
+            Collection record for the public-art series connected to stories
+            from Ottawa’s Italian-Canadian community.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://ottawa.ca/en/arts-heritage-and-events/public-art-and-city-ottawa-art-collection/city-ottawa-art-collection/art-search/postcards-piazzas"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open source ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 4 -->
+
+      <article
+        class="source-item"
+        data-search="Gaspar Zeljka An Angel from the Italian Village Il Postino October 2000 Online article Profile of Mary Ierullo’s real-estate career interpreting community service and relationship with her mother Angela Maria Messina.">
+
+        <div class="source-year">2000</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Online article</p>
+
+          <h2>An Angel from the ‘Italian Village’</h2>
+
+          <p class="citation">
+            Gaspar, Zeljka. “An Angel from the ‘Italian Village’.”
+            <em>Il Postino</em>, October 2000.
+          </p>
+
+          <p class="source-description">
+            Profile of Mary Ierullo’s real-estate career, interpreting,
+            community service, and relationship with her mother,
+            Angela Maria Messina.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://ilpostino.ca/issues/october-2000/mary-ierullo"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open source ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 5 -->
+
+      
+
+      <!-- 6 -->
+
+      <article
+        class="source-item"
+        data-search="Gillieson Lauren Mary Ierullo A Willow Street Angel Newspaper clipping publication title not available in the supplied clipping details 2005 Partial newspaper clipping PDF Describes the Willow Street angels initiative organized by Maria and her daughter Angela with neighbourhood children.">
+
+        <div class="source-year">2005</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Partial newspaper clipping (PDF)</p>
+
+          <h2>Mary Ierullo: A Willow Street Angel</h2>
+
+          <p class="citation">
+            Gillieson, Lauren. “Mary Ierullo: A Willow Street Angel.”
+            <em>Newspaper clipping; publication title not available in the supplied clipping details</em>,
+            2005.
+          </p>
+
+          <p class="source-description">
+            Describes the Willow Street angels initiative organized by
+            Maria and her daughter Angela with neighbourhood children.
+          </p>
+
+          <a
+            class="source-link"
+            href="./pdfs/WillowStreet.pdf">
+            View PDF ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 7 -->
+
+      <article
+        class="source-item"
+        data-search="Author not identified in the available record St. Anthony’s School Il Postino January 2001 Digitized historical article Community-history article originally published in Il Postino and preserved in an archived Ottawa Italians collection.">
+
+        <div class="source-year">2001</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Digitized historical article</p>
+
+          <h2>St. Anthony’s School</h2>
+
+          <p class="citation">
+            Author not identified in the available record.
+            “St. Anthony’s School.”
+            <em>Il Postino</em>, January 2001.
+          </p>
+
+          <p class="source-description">
+            Community-history article originally published in Il Postino
+            and preserved in an archived Ottawa Italians collection.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://epe.lac-bac.gc.ca/100/205/301/ic/cdc/OttawaItalians/Community/stAnthonysSchool.htm"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open source ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 8 -->
+
+      <article
+        class="source-item"
+        data-search="Marsillo Cassandra Donne Di Ottawa Exhibit Unveiled at the Centro Storico Italo-Canadese Italo-Canadese November 24 2025 Online article Reports on the permanent exhibit recognizing Italian-Canadian women including Maria Ierullo.">
+
+        <div class="source-year">2025</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Online article</p>
+
+          <h2>‘Donne Di Ottawa’ Exhibit Unveiled at the Centro Storico Italo-Canadese</h2>
+
+          <p class="citation">
+            Marsillo, Cassandra.
+            “‘Donne Di Ottawa’ Exhibit Unveiled at the Centro Storico
+            Italo-Canadese.”
+            <em>Italo-Canadese</em>, November 24, 2025.
+          </p>
+
+          <p class="source-description">
+            Reports on the permanent exhibit recognizing Italian-Canadian
+            women, including Maria Ierullo.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://italocanadese.org/2025/11/24/donne-di-ottawa-exhibit-unveiled-at-the-centro-storico-italo-canadese/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open source ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 9 -->
+
+      <article
+        class="source-item"
+        data-search="Lofaro Tony From Italy to Canadians with Love Ottawa Citizen June 13 2003 Digitized newspaper article PDF Covers Maria’s role in the Presenza exhibition real estate career immigrant support interpreting and advocacy for homeowners facing expropriation.">
+
+        <div class="source-year">2003</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Digitized newspaper article (PDF)</p>
+
+          <h2>From Italy to Canadians with Love</h2>
+
+          <p class="citation">
+            Lofaro, Tony. “From Italy to Canadians with Love.”
+            <em>Ottawa Citizen</em>, June 13, 2003.
+          </p>
+
+          <p class="source-description">
+            Covers Maria’s role in the Presenza exhibition, real estate
+            career, immigrant support, interpreting, and advocacy for
+            homeowners facing expropriation.
+          </p>
+
+          <a
+            class="source-link"
+            href="./pdfs/FromItalyToCanadians.pdf">
+            View PDF ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 10 -->
+
+      <article
+        class="source-item"
+        data-search="The Ottawa Hospital Foundation Other mother Mary Ierullo The Ottawa Hospital Foundation 100 Moments Moment 22 100 n.d. Online profile Recounts Mary’s support for young pregnant immigrant women and her involvement in establishing a prenatal clinic at the Civic.">
+
+        <div class="source-year">n.d.</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Online profile</p>
+
+          <h2>‘Other mother’ Mary Ierullo</h2>
+
+          <p class="citation">
+            The Ottawa Hospital Foundation.
+            “‘Other mother’ Mary Ierullo.”
+            <em>The Ottawa Hospital Foundation · 100 Moments, Moment 22/100</em>,
+            n.d.
+          </p>
+
+          <p class="source-description">
+            Recounts Mary’s support for young pregnant immigrant women and
+            her involvement in establishing a prenatal clinic at the Civic.
+          </p>
+
+          <a
+            class="source-link"
+            href="https://ohfoundation.ca/100-moments/other-mother-mary-ierullo/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open source ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 11 -->
+
+      <article
+        class="source-item"
+        data-search="Progressive Choices Decade of Leaders Progressive Choices Spring 2007 Magazine feature PDF Feature celebrating 100 women across a century Maria was selected to represent the 1950s and is profiled for her real-estate work community guidance and court interpreting.">
+
+        <div class="source-year">2007</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Magazine feature (PDF)</p>
+
+          <h2>Decade of Leaders</h2>
+
+          <p class="citation">
+            Progressive Choices. “Decade of Leaders.”
+            <em>Progressive Choices</em>, Spring 2007.
+          </p>
+
+          <p class="source-description">
+            Feature celebrating 100 women across a century; Maria was
+            selected to represent the 1950s and is profiled for her
+            real-estate work, community guidance, and court interpreting.
+          </p>
+
+          <a
+            class="source-link"
+            href="./pdfs/DecadeOfLeaders.pdf">
+            View PDF ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 12 -->
+
+      <article
+        class="source-item"
+        data-search="Rhyno Crystal The Toast of Little Italy Centretown woman’s life story part of national exhibit Centretown News 2003 Digitized newspaper article PDF Describes Maria’s place in the Presenza exhibition and the archival real-estate records and signage displayed there along with her community-service recognition.">
+
+        <div class="source-year">2003</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Digitized newspaper article (PDF)</p>
+
+          <h2>
+            The Toast of Little Italy:
+            Centretown woman’s life story part of national exhibit
+          </h2>
+
+          <p class="citation">
+            Rhyno, Crystal.
+            “The Toast of Little Italy: Centretown woman’s life story
+            part of national exhibit.”
+            <em>Centretown News</em>, 2003.
+          </p>
+
+          <p class="source-description">
+            Describes Maria’s place in the Presenza exhibition and the
+            archival real-estate records and signage displayed there,
+            along with her community-service recognition.
+          </p>
+
+          <a
+            class="source-link"
+            href="./pdfs/ToastOfLittleItaly.pdf">
+            View PDF ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 13 -->
+
+      <article
+        class="source-item"
+        data-search="Vandenburg Bob Deal from the Heart Buzz July 1997 Digitized article clipping PDF Profiles Maria’s real-estate business clients community assistance interpreting and distinctive Italian-tricolour signs.">
+
+        <div class="source-year">1997</div>
+
+        <div class="source-main">
+
+          <p class="source-type">Digitized article clipping (PDF)</p>
+
+          <h2>Deal from the Heart</h2>
+
+          <p class="citation">
+            Vandenburg, Bob. “Deal from the Heart.”
+            <em>Buzz</em>, July 1997.
+          </p>
+
+          <p class="source-description">
+            Profiles Maria’s real-estate business, clients, community
+            assistance, interpreting, and distinctive Italian-tricolour signs.
+          </p>
+
+          <a
+            class="source-link"
+            href="./pdfs/DealFromTheHeart.pdf">
+            View PDF ↗
+          </a>
+
+        </div>
+
+      </article>
+<!-- 14 -->
+
+<article
+  class="source-item"
+  data-search="Nicole Valentinuzzi Ottawa Italian Canadian Women’s Filò April 2002 Italian Canadian Women’s Filo Maria Ierullo Jennie Prosperine Maria Minna Community recognition Real estate Digitized archival newspaper article PDF">
+
+  <div class="source-year">2002</div>
+
+  <div class="source-main">
+    <p class="source-type">Digitized newspaper article (PDF)</p>
+
+<h2>Ottawa Italian Canadian Women’s Filò</h2>
+
+<p class="citation">
+  Valentinuzzi, Nicole. “Ottawa Italian Canadian Women’s Filò.”
+  <em>Newspaper article</em>, April 2002.
+</p>
+
+<p class="source-description">
+  Reports on the first Ottawa Italian Canadian Women’s Filò, where
+  Maria Ierullo and Jennie Prosperine were honoured for their
+  contributions to the Ottawa community. The article also recognizes
+  the Honourable Maria Minna as the first Italian-Canadian woman to
+  serve as a federal cabinet minister and highlights Maria Ierullo’s
+  pioneering real-estate career and longstanding reputation within
+  Ottawa’s Italian-Canadian community.
+</p>
+
+<a
+  class="source-link"
+  href="./pdfs/NicoleValentinuzzi_April2002.pdf">
+  View PDF ↗
+</a>
+
+  </div>
+</article>
+
+<!-- 15 -->
+
+<article
+  class="source-item"
+  data-search="Il Postino A New Look at Italian Canadian Heritage February 2003 Presenza Canadian Museum of Civilization Italian Canadian heritage Ottawa community exhibit preparation">
+
+  <div class="source-year">2003</div>
+
+  <div class="source-main">
+    <p class="source-type">Digitized historical article (PDF)</p>
+
+<h2>A New Look at Italian Canadian Heritage</h2>
+
+<p class="citation">
+  <em>Il Postino</em>. “A New Look at Italian Canadian Heritage.”
+  February 2003.
+</p>
+
+<p class="source-description">
+  Pre-opening coverage of <em>Presenza</em>, documenting preparations
+  within Ottawa’s Italian-Canadian community for the Canadian Museum
+  of Civilization exhibition celebrating Italian-Canadian heritage.
+  The article provides contemporary context for Maria Ierullo’s later
+  inclusion in the exhibition.
+</p>
+
+<a
+  class="source-link"
+  href="./pdfs/IlPostino_A_New_Look_Italian_Canadian_Heritage.pdf">
+  View PDF ↗
+</a>
+
+  </div>
+</article>
+
+<!-- 16 -->
+
+<article
+  class="source-item"
+  data-search="Italian Telephone Directory of Ottawa 2003 Maria Ierullo community service plaque Italian Canadian Women of the Village real estate court interpreter prenatal clinic expropriation Museum of Civilization papal blessing archival material PDF">
+
+  <div class="source-year">2003</div>
+
+  <div class="source-main">
+    <p class="source-type">Archival publication page (PDF)</p>
+
+<h2>Maria Ierullo — Community Service Recognition</h2>
+
+<p class="citation">
+  <em>Italian Telephone Directory of Ottawa</em>, 2003.
+  Page documenting Maria Ierullo’s community service and recognition
+  by the Italian Canadian Women of the Village.
+</p>
+
+<p class="source-description">
+  Directory page featuring Maria Ierullo holding a plaque recognizing
+  her lifetime of community service. The page describes her work in
+  real estate, court interpretation, immigrant services, the prenatal
+  clinic, advocacy concerning expropriation, and her recognition by
+  the Italian Canadian Women of the Village.
+</p>
+
+<a
+  class="source-link"
+  href="./pdfs/ItalianTelephoneDirectory2003.pdf">
+  View PDF ↗
+</a>
+
+  </div>
+</article>
+
+<!-- 17 -->
+
+<article
+  class="source-item"
+  data-search="Jane Mosgrove Maria Ierullo Presenza 2003 newspaper article Italian Canadian Women of the Village real estate translation court translator unions Angela embroidery convent Vincenzo Jimmy Ierullo archival material PDF">
+
+  <div class="source-year">c. 2003</div>
+
+  <div class="source-main">
+    <p class="source-type">Archival newspaper article (PDF)</p>
+
+<h2>Maria Ierullo and the Presenza Story</h2>
+
+<p class="citation">
+  Mosgrove, Jane. “Maria Ierullo and the Presenza Story.”
+  <em>Newspaper article</em>, c. 2003.
+</p>
+
+<p class="source-description">
+  Personal profile of Maria Ierullo during the period of the
+  <em>Presenza</em> exhibition. The article recalls her community
+  advocacy, recognition by the Italian Women of the Village, early
+  life with her mother Angela, religious vocation, real-estate career,
+  assistance to immigrant home buyers, and work as a court and union
+  translator.
+</p>
+
+<a
+  class="source-link"
+  href="./pdfs/JaneMosgrove_MariaIerullo.pdf">
+  View PDF ↗
+</a>
+
+  </div>
+</article>
+
+<!-- 18 -->
+
+<article
+  class="source-item"
+  data-search="Italian Telephone Directory of Ottawa 2014 Maria Ierullo Award for Community Service Angela Ierullo Catanzaro Italy 1920 St Anthony Church prenatal clinic Booth Preston Street expropriation real estate archival material PDF">
+
+  <div class="source-year">2014</div>
+
+  <div class="source-main">
+    <p class="source-type">Archival publication page (PDF)</p>
+
+<h2>Maria Ierullo Award for Community Service</h2>
+
+<p class="citation">
+  <em>Italian Telephone Directory of Ottawa</em>, 2014.
+  Page documenting the Maria Ierullo Award for Community Service.
+</p>
+
+<p class="source-description">
+  Later biographical account connecting Maria Ierullo’s life and
+  community service to the award established by Maria and her daughter
+  Angela. The page recounts Maria’s immigration from Catanzaro,
+  education, real-estate career, religious faith, work with immigrant
+  women, and assistance to homeowners affected by expropriation in
+  the Booth Street and Preston Street area.
+</p>
+
+<a
+  class="source-link"
+  href="./pdfs/ItalianTelephoneDirectory2014.pdf">
+  View PDF ↗
+</a>
+
+  </div>
+</article>
+
+<!-- 19 -->
+
+<article
+  class="source-item"
+  data-search="Brian J Porte Maria Ierullo Dalhousie Ward translation community services immigration Italian Canadian Ottawa post war immigrants St Anthony Padua real estate translator community activist volunteer undated newspaper archival material PDF">
+
+  <div class="source-year">n.d.</div>
+
+  <div class="source-main">
+    <p class="source-type">Archival newspaper article (PDF)</p>
+
+<h2>Maria Ierullo’s Translation and Community Services</h2>
+
+<p class="citation">
+  Porte, Brian J. “Maria Ierullo’s Translation and Community Services.”
+  <em>Newspaper article</em>, n.d.
+</p>
+
+<p class="source-description">
+  Examines Maria Ierullo’s volunteer work assisting post-war immigrants
+  in Ottawa’s Dalhousie Ward. The article describes her ability to
+  navigate institutions, connect Italian immigrants with the broader
+  community, and provide translation and settlement assistance, while
+  also developing a pioneering career as a real-estate broker,
+  translator, and community activist.
+</p>
+
+<a
+  class="source-link"
+  href="./pdfs/BrianJPorte_MariaIerullo.pdf">
+  View PDF ↗
+</a>
+
+  </div>
+</article>
+
+
+
+    </section>
+
+
+    <p class="no-results" id="noResults">
+      No sources match your search. Try another title, author, or publication.
+    </p>
+
+
+    <!-- RESEARCH NOTE -->
+
+    <aside class="note">
+
+      <strong>Research note:</strong>
+
+      This bibliography distinguishes between information contained in
+      historical records, claims made by contemporary publications, and
+      later historical interpretation.
+
+      Where an author, publication title, date, or other bibliographic
+      information cannot be established from the surviving record, it is
+      identified as unknown or not available rather than inferred.
+
+      Claims concerning historical “firsts” are attributed to the
+      publications or records in which those claims appear rather than
+      presented as independently established facts.
+
+      The historical materials relating to Maria Ierullo are also being
+      documented and organized through archival work with the City of
+      Ottawa Archives, providing additional professional archival context
+      for the records referenced throughout this website.
+
+    </aside>
+
+
+  </main>
+
+
+  <footer>
+
+    <strong>The legacy continues.</strong>
+
+    In memory of Maria Ierullo
+
+    <br><br>
+
+    <a href="index.html">Home</a>
+    &nbsp;·&nbsp;
+    <a href="archive.html">Historical Archive</a>
+
+  </footer>
+
+
+  <script>
+
+    const search = document.getElementById('bibliographySearch');
+    const items = [...document.querySelectorAll('.source-item')];
+    const count = document.getElementById('resultCount');
+    const noResults = document.getElementById('noResults');
+
+    function filterSources() {
+
+      const query = search.value.toLowerCase().trim();
+
+      let visible = 0;
+
+      items.forEach(item => {
+
+        const matches =
+          item.textContent.toLowerCase().includes(query) ||
+          (item.dataset.search || '').toLowerCase().includes(query);
+
+        item.hidden = !matches;
+
+        if (matches) {
+          visible++;
+        }
+
+      });
+
+      count.textContent =
+        `${visible} ${visible === 1 ? 'source' : 'sources'}`;
+
+      noResults.style.display =
+        visible ? 'none' : 'block';
+
+    }
+
+    search.addEventListener('input', filterSources);
+
+    filterSources();
+
+  </script>
+<script src="site-search.js" defer></script>
+</body>
+
+</html>
