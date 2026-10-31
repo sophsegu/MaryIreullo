@@ -970,30 +970,234 @@
            POETRY
         ========================= */
 
-        .poetry {
-            padding: 130px 15%;
-            text-align: center;
-            background: var(--burgundy);
-            color: white;
-        }
+        .poetry-section {
+    padding: clamp(4.5rem, 8vw, 7.5rem) 1.5rem;
+    background: var(--bg, #f8f5f0);
+    scroll-margin-top: 90px;
+}
 
-        .poetry .eyebrow {
-            color: #d8bd83;
-        }
+.poetry-inner {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
 
-        .poetry h2 {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 65px;
-        }
+.poetry-heading {
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
 
-        .poem {
-            max-width: 700px;
-            margin: 50px auto;
-            font-family: "Cormorant Garamond", serif;
-            font-size: 28px;
-            font-style: italic;
-            color: #eee2df;
-        }
+.poetry-heading .section-eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--burgundy, #722f37);
+    font-family: "DM Mono", monospace;
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.poetry-heading h2 {
+    margin: 0 0 1rem;
+    color: var(--text, #2d2926);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.poetry-heading .poetry-subtitle {
+    margin: 0 auto 1.25rem;
+    color: var(--burgundy, #722f37);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    font-style: italic;
+}
+
+.poetry-heading > p:last-child {
+    max-width: 690px;
+    margin: 0 auto;
+    color: var(--muted, #6f6862);
+    font-family: "Inter", sans-serif;
+    font-size: .98rem;
+    line-height: 1.9;
+}
+
+.poetry-recording {
+    margin: 0 auto 3.25rem;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    border: 1px solid var(--light-grey, #ded6cc);
+    background: var(--card-bg, #fffdf9);
+    box-shadow: 0 12px 36px rgba(45, 41, 38, .045);
+}
+
+.poetry-recording:last-child {
+    margin-bottom: 0;
+}
+
+.poetry-recording-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.poetry-recording-number {
+    display: grid;
+    width: 2.65rem;
+    height: 2.65rem;
+    place-items: center;
+    border: 1px solid var(--gold, #b08a4a);
+    border-radius: 50%;
+    color: var(--burgundy, #722f37);
+    font-family: "DM Mono", monospace;
+    font-size: .78rem;
+}
+
+.poetry-recording h3 {
+    margin: -.25rem 0 .25rem;
+    color: var(--burgundy, #722f37);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.poetry-recording-intro {
+    margin: 0;
+    color: var(--muted, #6f6862);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.poetry-video-frame {
+    width: 100%;
+    max-width: 820px;
+    margin: 1.5rem auto 0;
+    overflow: hidden;
+    background: #171514;
+    border: 1px solid rgba(0, 0, 0, .12);
+}
+
+.poetry-video-frame video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    background: #171514;
+    object-fit: contain;
+}
+
+.poetry-video-caption {
+    max-width: 820px;
+    margin: .75rem auto 0;
+    color: var(--muted, #6f6862);
+    font-family: "DM Mono", monospace;
+    font-size: .68rem;
+    letter-spacing: .06em;
+    line-height: 1.7;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.poem-full-text {
+    max-width: 820px;
+    margin: 1.75rem auto 0;
+    border-top: 1px solid var(--light-grey, #ded6cc);
+    border-bottom: 1px solid var(--light-grey, #ded6cc);
+}
+
+.poem-full-text summary {
+    padding: 1.1rem .15rem;
+    color: var(--burgundy, #722f37);
+    cursor: pointer;
+    font-family: "DM Mono", monospace;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    list-style-position: inside;
+    text-transform: uppercase;
+}
+
+.poem-full-text summary:hover {
+    color: var(--gold, #b08a4a);
+}
+
+.poem-full-text[open] summary {
+    margin-bottom: 1.25rem;
+}
+
+.poem-complete {
+    padding: 0 .75rem 1.75rem;
+    color: var(--text, #2d2926);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    line-height: 1.85;
+    text-align: center;
+}
+
+.poem-complete p {
+    margin: 0 0 1.5rem;
+}
+
+.poem-complete p:last-child {
+    margin-bottom: 0;
+}
+
+.poetry-book-note {
+    max-width: 760px;
+    margin: 3.5rem auto 0;
+    padding: 1.75rem 2rem;
+    border-left: 3px solid var(--gold, #b08a4a);
+    background: rgba(255, 255, 255, .48);
+    color: var(--muted, #6f6862);
+    font-size: .9rem;
+    line-height: 1.85;
+}
+
+.poetry-book-note strong {
+    color: var(--burgundy, #722f37);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .poetry-section {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .poetry-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .poetry-recording {
+        padding: 1.15rem;
+        margin-bottom: 2rem;
+    }
+
+    .poetry-recording-header {
+        gap: .75rem;
+    }
+
+    .poetry-recording-number {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .poem-complete {
+        padding-right: .15rem;
+        padding-left: .15rem;
+        font-size: 1.12rem;
+    }
+
+    .poetry-book-note {
+        padding: 1.25rem;
+    }
+}
+
 
         /* =========================
            FOOTER
@@ -2244,78 +2448,149 @@
     ========================== -->
 
    
-<section class="poetry-section" id="poetry">
+<section class="poetry-section searchable" id="poetry">
     <div class="poetry-inner">
 
         <header class="poetry-heading">
-            <span class="section-eyebrow">HER WORDS, HER LEGACY</span>
-            <h2>A Poet's Remembrance</h2>
+            <span class="section-eyebrow">MARIA IERULLO · HER POETRY · HER VOICE</span>
+            <h2>In Her Own Words</h2>
+            <p class="poetry-subtitle">A voice preserved. A story remembered.</p>
             <p>
-                Beyond her work and service to the community, Maria's words
-                offer another glimpse into the values she held dear.
-                In “This Remember,” she reflects on sacrifice, freedom,
-                remembrance, and the hope for lasting peace.
+                Maria's poetry gave expression to her memories, experiences,
+                beliefs, and reflections on life. These original recordings
+                offer the opportunity to hear Maria read her own work.
+                In the recording of <em>Nature's Symphony</em>, she also shares
+                her interpretation of the poem, allowing us to hear not only
+                the words she wrote, but something of what they meant to her.
             </p>
         </header>
 
-        <article class="poem-card">
-            <div class="poem-ornament" aria-hidden="true">❧</div>
+        <!-- RECORDING ONE: NATURE'S SYMPHONY -->
+        <article class="poetry-recording" id="natures-symphony">
+            <header class="poetry-recording-header">
+                <span class="poetry-recording-number" aria-hidden="true">01</span>
+                <div>
+                    <h3>Nature's Symphony</h3>
+                    <p class="poetry-recording-intro">
+                        Maria reads the opening stanza and continues by sharing
+                        her own meaning and interpretation of the poem.
+                    </p>
+                </div>
+            </header>
 
-            <h3 class="poem-title">This Remember</h3>
-
-            <div class="poem-text">
-                <p>
-                    I dreamt, I stood, by Flanders' Field, one day<br>
-                    And poppies, all aglow, did gently sway;<br>
-                    Upon the soil, where crosses so white did reign,<br>
-                    While p above, the wind sang this refrain
-                </p>
-
-                <p>
-                    They all lived, and met death gloriously;<br>
-                    So that all humanity would be free,<br>
-                    Then brightly shone the moon, eye in the sky,<br>
-                    A binding link with us, and those gone by.
-                </p>
-
-                <p>
-                    Then, in my heart those far below did speak;<br>
-                    They cried. "Let those who live, protect the weak;<br>
-                    We, still would take this, a glorious course;<br>
-                    To die, for our country, without remorse."
-                </p>
-
-                <p>
-                    "Now fight, until the end, and bring defeat;<br>
-                    To our enemy, and make our joy complete,<br>
-                    And this remember, when this war did end,<br>
-                    You have brought lasting peace, to foe and friend."
-                </p>
-
-                <p>
-                    Then when, Armistice comes, and yo stand;<br>
-                    Before the memorial. The then the hand;<br>
-                    Of the one standing sadly by your side,<br>
-                    And let the tears alone, don't let them hide.
-                </p>
-
-                <p>
-                    And be proud you've won the war, just as we;<br>
-                    Before you were as proud to set yo free.<br>
-                    "We too will share the glory heaper on you.<br>
-                    For yo, like s, helped start the world anew."
-                </p>
+            <div class="poetry-video-frame">
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    poster="media/poetry/natures-symphony-poster.jpg"
+                    aria-label="Maria Ierullo reading the opening stanza of Nature's Symphony and explaining her interpretation"
+                >
+                    <source src="media/poetry/natures-symphony.mp4" type="video/mp4">
+                    Your browser does not support embedded video.
+                    You can still read the complete poem below.
+                </video>
             </div>
+            <p class="poetry-video-caption">
+                Original family video recording · Shared with permission
+            </p>
 
-            <div class="poem-footer">
-                <span>A poem by Maria Ierullo</span>
-            </div>
+            <details class="poem-full-text">
+                <summary>Read the complete poem</summary>
+                <div class="poem-complete">
+                    <p>
+                        The waves to me, sing a sweet serenade,<br>
+                        As it softly laps, near my quiet shade,<br>
+                        The wind follows up, with a sad refrain<br>
+                        To me it's like, the trees caught in the rain.
+                    </p>
+                    <p>
+                        Then a whippoorwill takes up the cry<br>
+                        It’s like, the heartbreak in a mother’s sigh,<br>
+                        The blue sky above heads this display,<br>
+                        By reflecting its image on the bay.
+                    </p>
+                    <p>
+                        The boat oars ripples, takes up the tune<br>
+                        While a lonely owl loudly calls the moon<br>
+                        Then all small insects of land and sea,<br>
+                        All strike up the sound in a different key.
+                    </p>
+                    <p>
+                        The waves and wind to me it seems<br>
+                        Are softly calling the moon’s silvery beams<br>
+                        And all birds and insects of sea and lands<br>
+                        Then give thanks to God and join their hands
+                    </p>
+                </div>
+            </details>
         </article>
+
+        <!-- RECORDING TWO: OUR CANADIAN PINES -->
+        <article class="poetry-recording" id="our-canadian-pines">
+            <header class="poetry-recording-header">
+                <span class="poetry-recording-number" aria-hidden="true">02</span>
+                <div>
+                    <h3>Our Canadian Pines</h3>
+                    <p class="poetry-recording-intro">
+                        Maria reads the opening stanza of her poem. The complete
+                        poem is preserved below for visitors to read.
+                    </p>
+                </div>
+            </header>
+
+            <div class="poetry-video-frame">
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    poster="media/poetry/our-canadian-pines-poster.jpg"
+                    aria-label="Maria Ierullo reading the opening stanza of Our Canadian Pines"
+                >
+                    <source src="media/poetry/our-canadian-pines.mp4" type="video/mp4">
+                    Your browser does not support embedded video.
+                    You can still read the complete poem below.
+                </video>
+            </div>
+            <p class="poetry-video-caption">
+                Original family video recording · Shared with permission
+            </p>
+
+            <details class="poem-full-text">
+                <summary>Read the complete poem</summary>
+                <div class="poem-complete">
+                    <p>
+                        I am standing far below, and so alone,<br>
+                        While the trees above are hewn from solitude,<br>
+                        You lift your hands up high in solemn prayer,<br>
+                        Yet unheedful of my just, admiring stare.
+                    </p>
+                    <p>
+                        Your splendor is the quiet, majestic kind,<br>
+                        Which aims to please, the soul, and human mind,<br>
+                        You neither waste a glance for me below,<br>
+                        For you seem to wish that I would kindly go.
+                    </p>
+                    <p>
+                        Yet still alone I stand, a midget in bliss<br>
+                        For I wish to feel, the wind’s caressing kiss,<br>
+                        But still up high to God, your hands you raise<br>
+                        And I, in thanks to God, lift my voice in praise
+                    </p>
+                </div>
+            </details>
+        </article>
+
+        <aside class="poetry-book-note">
+            These poems are among the works included in
+            <strong><em>Who am I, I AM Maria</em></strong>.
+            The recordings preserve Maria reading her own writing, offering
+            a personal connection between the poems on the page and the voice
+            that first brought them to life.
+        </aside>
 
     </div>
 </section>
-
-
 
     <!-- =========================
          FOOTER
